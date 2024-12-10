@@ -1,0 +1,17 @@
+.site-header {
+    padding: 10px; 
+    background-color: #007bff; 
+    color: #fff;
+}
+
+.nav-items{
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    padding: 0;
+}
+
+.nav-item-link {
+    color: #fff;
+    text-decoration: none;
+}
