@@ -14,6 +14,7 @@ function YouTubeCard({ video }) {
         channelName: video.channelName,
         timeSinceUpload: video.timeSinceUpload,
         outlierFactor: video.outlierFactor, // Save the outlier factor as well
+        views: video.views, // Save the view count as well
       });
       alert(`Video "${video.title}" saved successfully!`);
     } catch (error) {
@@ -31,6 +32,7 @@ function YouTubeCard({ video }) {
       />
       <div className="video-details">
         <h3 className="video-title">{video.title}</h3>
+        <p className="channel-name">{video.channelName}</p>
         <div
           style={{
             display: "flex",
@@ -38,8 +40,10 @@ function YouTubeCard({ video }) {
             marginTop: "10px",
           }}
         >
-          <p className="channel-name">{video.channelName}</p>
           <p className="video-stats">{video.timeSinceUpload}</p>
+          <p className="video-stats" style={{ marginLeft: "10px" }}>
+            {video.views.toLocaleString()} views
+          </p>
         </div>
         <p className="outlier-message">
           <span>{video.outlierFactor}x</span> views over subscribers
