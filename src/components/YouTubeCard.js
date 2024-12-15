@@ -7,19 +7,27 @@ import "../styles/YouTubeSearch.css";
 function YouTubeCard({ video }) {
   // Function to save a video to Firebase
   const saveVideo = async (video) => {
+    console.log("Saving video data:", video); // Debugging
+
+    // Validate and clean the video object
+    const videoData = {
+      title: video.title || "Untitled Video", // Default to "Untitled Video" if title is missing
+      thumbnail: video.thumbnail || "", // Default to empty string if thumbnail is missing
+      channelName: video.channelName || "Unknown Channel", // Default value
+      timeSinceUpload: video.timeSinceUpload || "Unknown", // Default if not provided
+      outlierFactor: video.outlierFactor ? String(video.outlierFactor) : "0", // Ensure string format
+      views: video.views ? String(video.views) : "0", // Ensure views are strings
+    };
+
+    // Log the cleaned video data
+    console.log("Cleaned video data to be saved:", videoData);
+
     try {
-      await addDoc(collection(db, "savedVideos"), {
-        title: video.title,
-        thumbnail: video.thumbnail,
-        channelName: video.channelName,
-        timeSinceUpload: video.timeSinceUpload,
-        outlierFactor: video.outlierFactor, // Save the outlier factor as well
-        views: video.views, // Save the view count as well
-      });
-      alert(`Video "${video.title}" saved successfully!`);
+      await addDoc(collection(db, "savedVideos"), videoData);
+      alert(`Video "${videoData.title}" saved successfully!`);
     } catch (error) {
-      console.error("Error saving video: ", error);
-      alert("Failed to save video.");
+      console.error("Error saving video to Firestore:", error.message);
+      alert("Failed to save video. Please try again.");
     }
   };
 
@@ -42,7 +50,7 @@ function YouTubeCard({ video }) {
         >
           <p className="video-stats">{video.timeSinceUpload}</p>
           <p className="video-stats" style={{ marginLeft: "10px" }}>
-            {video.views.toLocaleString()} views
+            {video.views} views
           </p>
         </div>
         <p className="outlier-message">
@@ -52,7 +60,7 @@ function YouTubeCard({ video }) {
       <button
         onClick={() => saveVideo(video)}
         className="button"
-        style={{ width: "auto", padding: "5px 10px" }}
+        style={{ width: "auto", padding: "5px" }}
       >
         Save
       </button>
