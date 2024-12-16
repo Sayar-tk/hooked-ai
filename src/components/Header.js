@@ -66,7 +66,7 @@ function Header() {
           <nav className="site-nav">
             <ul className="nav-items">
               <li className="nav-item">
-                <Link to="/" className="nav-item-link">
+                <Link to="/yt-outlier" className="nav-item-link">
                   YouTube Outlier
                 </Link>
               </li>
