@@ -1,17 +1,58 @@
+/* src/styles/Header.css */
 .site-header {
-    padding: 10px; 
-    background-color: #007bff; 
-    color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
 }
 
-.nav-items{
-    display: flex;
-    list-style: none;
-    gap: 15px;
-    padding: 0;
+.nav-items {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-item-link {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
+}
+
+.profile-menu {
+  position: relative;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background: white;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdown-item:hover {
+  background: #f0f2f5;
 }
