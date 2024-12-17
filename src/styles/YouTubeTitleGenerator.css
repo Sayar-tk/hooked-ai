@@ -1,0 +1,172 @@
+/* YouTube Title Generator Page */
+.yt-title-generator-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.yt-title-generator-title {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.yt-title-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.yt-video-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.yt-video-card:hover {
+  transform: translateY(-5px);
+}
+
+.yt-video-thumbnail {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.yt-video-details {
+  padding: 10px;
+  text-align: center;
+}
+
+.yt-video-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 5px 0;
+}
+
+.yt-video-channel {
+  font-size: 14px;
+  color: #555;
+}
+
+.yt-video-stats {
+  font-size: 12px;
+  color: #777;
+  margin-top: 5px;
+}
+
+.yt-video-outlier {
+  font-size: 14px;
+  color: #007bff;
+  margin-top: 5px;
+}
+
+.yt-video-outlier span {
+  font-weight: bold;
+}
+
+/* Load More Button */
+.load-more-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.load-more-button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Button for modeling a video */
+.model-video-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.model-video-button:hover {
+  background-color: #218838;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.modal-video-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.modal-close-button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-close-button:hover {
+  background-color: #c82333;
+}
+
+.modal-framework {
+  font-size: 14px;
+  color: #333;
+  margin-top: 15px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  font-style: italic;
+}
