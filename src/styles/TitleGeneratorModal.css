@@ -1,0 +1,124 @@
+/* Modal Container */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.modal-video-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.modal-framework {
+  font-size: 16px;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+/* Generate Variations Button */
+.modal-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.modal-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Title Variations List */
+.framework-variations {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  max-height: 150px;
+  overflow-y: auto; /* Scroll if too many variations */
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.variation-item {
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+}
+
+.variation-item:last-child {
+  border-bottom: none;
+}
+
+.variation-item strong {
+  color: #007bff;
+  margin-right: 5px;
+}
+
+/* User Input Section */
+.user-input-section {
+  margin-top: 15px;
+}
+
+.video-idea-input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.generated-titles {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.generated-titles li {
+  padding: 5px 0;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px dashed #ddd;
+}
+
+.generated-titles li:last-child {
+  border-bottom: none;
+}
+
+/* Close Button */
+.modal-close-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.modal-close-button:hover {
+  background-color: #c82333;
+}

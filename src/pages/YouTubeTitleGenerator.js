@@ -3,6 +3,9 @@ import { db } from "../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import "../styles/YouTubeTitleGenerator.css";
 import { generateTitleFramework } from "../services/openaiService";
+import VideoGrid from "../components/yt-title-generator/VideoGrid";
+import TitleGeneratorModal from "../components/yt-title-generator/TitleGeneratorModal";
+import LoadMoreButton from "../components/yt-title-generator/LoadMoreButton";
 
 const YouTubeTitleGenerator = () => {
   const [videos, setVideos] = useState([]);
@@ -11,9 +14,9 @@ const YouTubeTitleGenerator = () => {
   const [error, setError] = useState("");
   const [loadMoreVisible, setLoadMoreVisible] = useState(false);
   const [startIndex, setStartIndex] = useState(0);
-  const [selectedVideo, setSelectedVideo] = useState(null); // Modal video data
-  const [framework, setFramework] = useState(""); // Title framework state
-  const [frameworkLoading, setFrameworkLoading] = useState(false); // Loading state for framework
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [framework, setFramework] = useState("");
+  const [frameworkLoading, setFrameworkLoading] = useState(false);
 
   const PAGE_SIZE = 12;
 
@@ -87,53 +90,17 @@ const YouTubeTitleGenerator = () => {
         <p>No saved videos found.</p>
       ) : (
         <>
-          <div className="yt-title-videos-grid">
-            {visibleVideos.map((video) => (
-              <div key={video.id} className="yt-video-card">
-                <img
-                  src={video.thumbnail || "https://via.placeholder.com/150"}
-                  alt={video.title}
-                  className="yt-video-thumbnail"
-                />
-                <div className="yt-video-details">
-                  <h3 className="yt-video-title">{video.title}</h3>
-                  <p className="yt-video-channel">
-                    Channel: {video.channelName || "Unknown Channel"}
-                  </p>
-                  <button
-                    className="model-video-button"
-                    onClick={() => openModal(video)}
-                  >
-                    Model this video
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {loadMoreVisible && (
-            <button onClick={loadMoreVideos} className="load-more-button">
-              Load More
-            </button>
-          )}
+          <VideoGrid videos={visibleVideos} onModelVideo={openModal} />
+          {loadMoreVisible && <LoadMoreButton onClick={loadMoreVideos} />}
         </>
       )}
-
       {selectedVideo && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Model this Video</h2>
-            <p className="modal-video-title">{selectedVideo.title}</p>
-            {frameworkLoading ? (
-              <p>Loading title framework...</p>
-            ) : (
-              <p className="modal-framework">{framework}</p>
-            )}
-            <button className="modal-close-button" onClick={closeModal}>
-              Close
-            </button>
-          </div>
-        </div>
+        <TitleGeneratorModal
+          video={selectedVideo}
+          framework={framework}
+          frameworkLoading={frameworkLoading}
+          onClose={closeModal}
+        />
       )}
     </div>
   );
