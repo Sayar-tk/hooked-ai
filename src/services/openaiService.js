@@ -57,7 +57,7 @@ export const generateTitleFramework = async (title) => {
         : "";
 
     const response = await openai.chat.completions.create({
-      model: "gpt-4o",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
@@ -98,7 +98,7 @@ const TitleFrameworkSchema = z.object({
 export const generateTitleFrameworks = async (title) => {
   try {
     const completion = await openai.beta.chat.completions.parse({
-      model: "gpt-4o",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
@@ -127,14 +127,21 @@ export const generateTitleFrameworks = async (title) => {
 
 // Generate titles from user input
 export const generateTitlesFromFramework = async (framework, idea) => {
+  const generatedVariations = await generateTitleFrameworks(framework);
+  const exampleMessage = `Here are some examples of engaging titles using this framewor:"${framework}:\n ${generatedVariations
+    .map((title, index) => {
+      return `${index + 1}. "${title.title}"`;
+    })
+    .join("\n")}`;
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-4o",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
           content:
-            "You are a YouTube video title generator that follows a specific framework to create engaging titles.",
+            "You are a YouTube video title generator that follows a specific framework to create engaging titles." +
+            exampleMessage,
         },
         {
           role: "user",
