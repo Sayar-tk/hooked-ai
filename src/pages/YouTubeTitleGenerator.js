@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../firebaseConfig";
-import { collection, getDocs } from "firebase/firestore";
+import { db, auth } from "../firebaseConfig";
+import { collection, getDocs, doc, query, where } from "firebase/firestore";
 import "../styles/YouTubeTitleGenerator.css";
 import { generateTitleFramework } from "../services/openaiService";
 import VideoGrid from "../components/yt-title-generator/VideoGrid";
@@ -17,35 +17,56 @@ const YouTubeTitleGenerator = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [framework, setFramework] = useState("");
   const [frameworkLoading, setFrameworkLoading] = useState(false);
-
+  const [filter, setFilter] = useState("Best Performers"); // Filter state
   const PAGE_SIZE = 12;
 
   useEffect(() => {
-    const fetchSavedVideos = async () => {
+    const fetchVideos = async () => {
       setLoading(true);
       setError("");
       try {
-        const savedVideosRef = collection(db, "savedVideos");
-        const snapshot = await getDocs(savedVideosRef);
+        let fetchedVideos = [];
 
-        const fetchedVideos = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
+        if (filter === "Best Performers") {
+          // Fetch global saved videos
+          const savedVideosRef = collection(db, "savedVideos");
+          const snapshot = await getDocs(savedVideosRef);
+          fetchedVideos = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+        } else if (filter === "Your Saved Videos") {
+          // Fetch user's saved videos
+          const user = auth.currentUser;
+          if (!user) {
+            setError("You must be logged in to see your saved videos.");
+            return;
+          }
+
+          const userSavedVideosRef = collection(
+            doc(db, "users", user.uid),
+            "savedVideos"
+          );
+          const snapshot = await getDocs(userSavedVideosRef);
+          fetchedVideos = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+        }
 
         setVideos(fetchedVideos);
         setVisibleVideos(fetchedVideos.slice(0, PAGE_SIZE));
         setLoadMoreVisible(fetchedVideos.length > PAGE_SIZE);
       } catch (err) {
-        console.error("Error fetching saved videos:", err);
+        console.error("Error fetching videos:", err);
         setError("Failed to load videos. Please try again later.");
       } finally {
         setLoading(false);
       }
     };
 
-    fetchSavedVideos();
-  }, []);
+    fetchVideos();
+  }, [filter]);
 
   const loadMoreVideos = () => {
     const nextIndex = startIndex + PAGE_SIZE;
@@ -82,18 +103,36 @@ const YouTubeTitleGenerator = () => {
   return (
     <div className="yt-title-generator-container">
       <h1 className="yt-title-generator-title">YouTube Title Generator</h1>
+
+      {/* Filter Dropdown */}
+      <div className="filter-container">
+        <label htmlFor="filter" className="filter-label">
+          Filter Videos:
+        </label>
+        <select
+          id="filter"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          className="filter-select"
+        >
+          <option value="Best Performers">Best Performers</option>
+          <option value="Your Saved Videos">Your Saved Videos</option>
+        </select>
+      </div>
+
       {loading ? (
         <p>Loading...</p>
       ) : error ? (
         <p className="error-message">{error}</p>
       ) : visibleVideos.length === 0 ? (
-        <p>No saved videos found.</p>
+        <p>No videos found for the selected filter.</p>
       ) : (
         <>
           <VideoGrid videos={visibleVideos} onModelVideo={openModal} />
           {loadMoreVisible && <LoadMoreButton onClick={loadMoreVideos} />}
         </>
       )}
+
       {selectedVideo && (
         <TitleGeneratorModal
           video={selectedVideo}
