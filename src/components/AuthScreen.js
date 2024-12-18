@@ -28,8 +28,6 @@ const AuthScreen = () => {
           role: "free", // Default role
         });
       }
-
-      alert(`Welcome ${user.displayName}`);
       navigate("/yt-outlier"); // Redirect to the outlier page
     } catch (error) {
       console.error("Error signing in with Google: ", error);

@@ -56,11 +56,11 @@ export const generateTitleFrameworks = async (title) => {
         {
           role: "system",
           content:
-            "You are a helpful assistant that generates reusable YouTube video titles in random topics form random niches.",
+            "You are a helpful assistant that generates YouTube video titles in random topics form random niches.",
         },
         {
           role: "user",
-          content: `Generate 4 variations of youtube titles in random niches based on this title: "${title}" `,
+          content: `Using this framework: "${title}", generate 4 engaging YouTube video titles in random niches" `,
         },
       ],
       response_format: zodResponseFormat(
@@ -70,7 +70,7 @@ export const generateTitleFrameworks = async (title) => {
     });
 
     const parsedResponse = completion.choices[0].message.parsed;
-    console.log("Parsed Response:", parsedResponse);
+
     return parsedResponse.title_frameworks;
   } catch (error) {
     console.error("Error generating title frameworks:", error);

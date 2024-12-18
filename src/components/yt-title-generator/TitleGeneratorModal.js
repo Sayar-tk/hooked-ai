@@ -1,3 +1,4 @@
+// /src/components/yt-title-generator/TitleGeneratorModal.js
 import React, { useState } from "react";
 import {
   generateTitleFrameworks,
@@ -13,24 +14,27 @@ const TitleGeneratorModal = ({
   onClose,
 }) => {
   const [titleVariations, setTitleVariations] = useState([]);
-  const [selectedFramework, setSelectedFramework] = useState("");
+  const [variationsLoading, setVariationsLoading] = useState(false);
   const [videoIdea, setVideoIdea] = useState("");
   const [generatedTitles, setGeneratedTitles] = useState([]);
   const [loadingTitles, setLoadingTitles] = useState(false);
 
   // Generate 4 title variations when framework is provided
   const handleGenerateVariations = async () => {
+    setVariationsLoading(true);
     try {
       const variations = await generateTitleFrameworks(video.title);
       setTitleVariations(variations);
     } catch (error) {
       console.error("Error generating variations:", error);
+    } finally {
+      setVariationsLoading(false);
     }
   };
 
   // Generate titles from user input based on the selected framework
   const handleGenerateTitles = async () => {
-    if (!selectedFramework || !videoIdea.trim()) {
+    if (!videoIdea.trim()) {
       alert("Please select a framework and enter a video idea.");
       return;
     }
@@ -38,15 +42,13 @@ const TitleGeneratorModal = ({
     setLoadingTitles(true);
     setGeneratedTitles([]);
     try {
-      const titles = await generateTitlesFromFramework(
-        selectedFramework,
-        videoIdea
-      );
+      const titles = await generateTitlesFromFramework(framework, videoIdea);
       setGeneratedTitles(titles);
     } catch (error) {
       console.error("Error generating titles:", error);
     } finally {
       setLoadingTitles(false);
+      setVideoIdea("");
     }
   };
 
@@ -60,7 +62,7 @@ const TitleGeneratorModal = ({
           <div>
             <p className="modal-framework">Main Framework: {framework}</p>
             <button onClick={handleGenerateVariations} className="modal-button">
-              Generate 4 Variations
+              {variationsLoading ? "Generating..." : "Generate 4 Variations"}
             </button>
             <ul className="framework-variations">
               {titleVariations.map((item, index) => (
@@ -69,21 +71,21 @@ const TitleGeneratorModal = ({
                 </li>
               ))}
             </ul>
-            {selectedFramework && (
-              <div className="user-input-section">
-                <p>Selected Framework: {selectedFramework}</p>
-                <input
-                  type="text"
-                  placeholder="Describe your video idea..."
-                  value={videoIdea}
-                  onChange={(e) => setVideoIdea(e.target.value)}
-                  className="video-idea-input"
-                />
-                <button onClick={handleGenerateTitles} className="modal-button">
-                  Generate Titles
-                </button>
-              </div>
-            )}
+
+            <div className="user-input-section">
+              <p>Describe your video idea to generate variations</p>
+              <input
+                type="text"
+                placeholder="Describe your video idea..."
+                value={videoIdea}
+                onChange={(e) => setVideoIdea(e.target.value)}
+                className="video-idea-input"
+              />
+              <button onClick={handleGenerateTitles} className="modal-button">
+                Generate Titles
+              </button>
+            </div>
+
             {loadingTitles ? (
               <p>Generating titles...</p>
             ) : (
