@@ -1,11 +1,15 @@
-// src/components/YouTubeCard.js
 import React, { useEffect, useState } from "react";
 import { auth, db } from "../firebaseConfig";
 import { collection, addDoc, doc, getDoc } from "firebase/firestore";
-import "../styles/YouTubeSearch.css";
+import { generateTitleFramework } from "../services/openaiService";
+import "../styles/YouTubeCard.css";
 
 function YouTubeCard({ video }) {
   const [userRole, setUserRole] = useState(null);
+  const [showModal, setShowModal] = useState(false); // State to toggle modal
+  const [framework, setFramework] = useState(""); // State to store framework
+  const [loadingFramework, setLoadingFramework] = useState(false); // Framework loading state
+  const [editedFramework, setEditedFramework] = useState(""); // State for editable framework
 
   useEffect(() => {
     const fetchUserRole = async () => {
@@ -25,6 +29,22 @@ function YouTubeCard({ video }) {
     fetchUserRole();
   }, []);
 
+  const openSaveModal = async () => {
+    setLoadingFramework(true);
+    setShowModal(true);
+
+    try {
+      const generatedFramework = await generateTitleFramework(video.title);
+      setFramework(generatedFramework);
+      setEditedFramework(generatedFramework);
+    } catch (error) {
+      console.error("Error generating framework:", error);
+      setFramework("Error generating framework. Try again later.");
+    } finally {
+      setLoadingFramework(false);
+    }
+  };
+
   const saveVideo = async () => {
     const user = auth.currentUser;
     if (!user) {
@@ -39,18 +59,20 @@ function YouTubeCard({ video }) {
       timeSinceUpload: video.timeSinceUpload || "Unknown", // Default if not provided
       outlierFactor: video.outlierFactor ? String(video.outlierFactor) : "0", // Ensure string format
       views: video.views ? String(video.views) : "0", // Ensure views are strings
+      ...(userRole === "admin" && { titleFramework: editedFramework }), // Only add framework for admin
     };
+
     try {
       if (userRole === "free" || userRole === "paid") {
         const userDocRef = doc(db, "users", user.uid);
         const savedVideosRef = collection(userDocRef, "savedVideos"); // Subcollection for saved videos
 
         await addDoc(savedVideosRef, videoData);
-
         alert(`Video "${video.title}" saved successfully!`);
-      } else {
+      } else if (userRole === "admin") {
         await addDoc(collection(db, "savedVideos"), videoData);
-        alert(`Video "${videoData.title}" saved successfully!`);
+        alert(`Video "${video.title}" with framework saved successfully!`);
+        setShowModal(false); // Close the modal
       }
     } catch (error) {
       console.error("Error saving video:", error);
@@ -84,13 +106,54 @@ function YouTubeCard({ video }) {
           <span>{video.outlierFactor}x</span> views over subscribers
         </p>
       </div>
-      <button
-        onClick={saveVideo}
-        className="button"
-        style={{ width: "auto", padding: "5px 10px" }}
-      >
-        Save Video
-      </button>
+      {userRole === "admin" ? (
+        <button
+          onClick={openSaveModal}
+          className="button"
+          style={{ width: "auto", padding: "5px 10px" }}
+        >
+          Save Video
+        </button>
+      ) : (
+        <button
+          onClick={saveVideo}
+          className="button"
+          style={{ width: "auto", padding: "5px 10px" }}
+        >
+          Save Video
+        </button>
+      )}
+
+      {/* Modal for Admin Framework Input */}
+      {showModal && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()} // Prevent closing on click inside modal
+          >
+            <h3>Title Framework</h3>
+            {loadingFramework ? (
+              <p>Loading framework...</p>
+            ) : (
+              <textarea
+                value={editedFramework}
+                onChange={(e) => setEditedFramework(e.target.value)}
+                rows="4"
+                style={{ width: "100%", marginBottom: "15px" }}
+              ></textarea>
+            )}
+            <button onClick={saveVideo} className="modal-button">
+              Save Video
+            </button>
+            <button
+              onClick={() => setShowModal(false)}
+              className="modal-close-button"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

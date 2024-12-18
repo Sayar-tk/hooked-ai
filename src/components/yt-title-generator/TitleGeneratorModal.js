@@ -1,10 +1,12 @@
 // /src/components/yt-title-generator/TitleGeneratorModal.js
-import React, { useState } from "react";
+// /src/components/yt-title-generator/TitleGeneratorModal.js
+import React, { useState, useEffect } from "react";
 import {
   generateTitleFrameworks,
   generateTitlesFromFramework,
 } from "../../services/openaiService";
-
+import { auth, db } from "../../firebaseConfig";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
 import "../../styles/TitleGeneratorModal.css";
 
 const TitleGeneratorModal = ({
@@ -13,11 +15,37 @@ const TitleGeneratorModal = ({
   frameworkLoading,
   onClose,
 }) => {
+  const [userRole, setUserRole] = useState(null);
   const [titleVariations, setTitleVariations] = useState([]);
   const [variationsLoading, setVariationsLoading] = useState(false);
   const [videoIdea, setVideoIdea] = useState("");
   const [generatedTitles, setGeneratedTitles] = useState([]);
   const [loadingTitles, setLoadingTitles] = useState(false);
+  const [editableFramework, setEditableFramework] = useState(framework);
+
+  // Initialize editableFramework when the framework prop changes
+  useEffect(() => {
+    setEditableFramework(framework);
+  }, [framework]);
+
+  // Fetch user role on component mount
+  useEffect(() => {
+    const fetchUserRole = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        try {
+          const userDoc = await getDoc(doc(db, "users", user.uid));
+          if (userDoc.exists()) {
+            setUserRole(userDoc.data().role || "free"); // Default role is free
+          }
+        } catch (error) {
+          console.error("Error fetching user role:", error);
+        }
+      }
+    };
+
+    fetchUserRole();
+  }, []);
 
   // Generate 4 title variations when framework is provided
   const handleGenerateVariations = async () => {
@@ -52,6 +80,18 @@ const TitleGeneratorModal = ({
     }
   };
 
+  // Save the edited framework to the database
+  const handleSaveFramework = async () => {
+    try {
+      const videoDocRef = doc(db, "savedVideos", video.id);
+      await updateDoc(videoDocRef, { titleFramework: editableFramework });
+      alert("Framework saved successfully!");
+    } catch (error) {
+      console.error("Error saving framework:", error);
+      alert("Failed to save framework. Please try again.");
+    }
+  };
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -60,7 +100,22 @@ const TitleGeneratorModal = ({
           <p>Loading title framework...</p>
         ) : (
           <div>
-            <p className="modal-framework">Main Framework: {framework}</p>
+            {userRole === "admin" ? (
+              <div>
+                <textarea
+                  className="editable-framework"
+                  value={editableFramework}
+                  rows={2}
+                  onChange={(e) => setEditableFramework(e.target.value)}
+                />
+                <button onClick={handleSaveFramework} className="modal-button">
+                  Save Framework
+                </button>
+              </div>
+            ) : (
+              <p className="modal-framework">{framework}</p>
+            )}
+
             <button onClick={handleGenerateVariations} className="modal-button">
               {variationsLoading ? "Generating..." : "Generate 4 Variations"}
             </button>

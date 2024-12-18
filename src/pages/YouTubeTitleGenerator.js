@@ -86,8 +86,18 @@ const YouTubeTitleGenerator = () => {
     setFrameworkLoading(true);
 
     try {
-      const generatedFramework = await generateTitleFramework(video.title);
-      setFramework(generatedFramework);
+      // Check if the framework is already saved
+      if (video.titleFramework) {
+        setFramework(video.titleFramework);
+      } else {
+        const generatedFramework = await generateTitleFramework(video.title);
+        setFramework(generatedFramework);
+
+        // Optionally save the framework to the video
+        // await doc(db, "savedVideos", video.id).update({
+        //   titleFramework: generatedFramework,
+        // });
+      }
     } catch (error) {
       setFramework("Error generating title framework. Try again later.");
     } finally {
