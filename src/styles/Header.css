@@ -1,11 +1,41 @@
 /* src/styles/Header.css */
+:root {
+  --primary-color: #020100;
+  --secondary-color: #fdfffc;
+  --accent-color: #ed1c24;
+  --highlight-color: #235789;
+}
+
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  min-height: 80px;
+}
+
+.logo-section .site-logo {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--accent-color);
+}
+
+.hamburger-menu {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.site-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-items {
@@ -17,11 +47,16 @@
 }
 
 .nav-item-link {
-  color: #fff;
+  color: var(--secondary-color);
   text-decoration: none;
+  font-size: 16px;
 }
 
-.profile-menu {
+.nav-item-link:hover {
+  color: var(--accent-color);
+}
+
+.profile-section {
   position: relative;
 }
 
@@ -30,13 +65,14 @@
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
+  border: 2px solid var(--highlight-color);
 }
 
 .dropdown-menu {
   position: absolute;
   right: 0;
   top: 50px;
-  background: white;
+  background: var(--secondary-color);
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -48,11 +84,43 @@
   font-size: 14px;
   cursor: pointer;
   border: none;
-  background: white;
+  background: var(--secondary-color);
   text-align: left;
   width: 100%;
 }
 
 .dropdown-item:hover {
   background: #f0f2f5;
+  color: var(--accent-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .site-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background: var(--primary-color);
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .site-menu.open {
+    display: flex;
+  }
+
+  .nav-items {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .profile-section {
+    margin-top: 10px;
+  }
 }
