@@ -5,7 +5,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { auth, provider, db } from "../../firebaseConfig";
+import { auth, provider, db } from "../firebaseConfig";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 
 const AuthScreen = () => {
