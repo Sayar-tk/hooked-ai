@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { auth, db } from "../firebaseConfig";
+import { auth, db } from "../../firebaseConfig";
 import { collection, addDoc, doc, getDoc } from "firebase/firestore";
-import { generateTitleFramework } from "../services/openaiService";
+import { generateTitleFramework } from "../../services/openaiService";
 import "../styles/YouTubeCard.css";
 
 function YouTubeCard({ video }) {

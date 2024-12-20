@@ -6,6 +6,7 @@ import { generateTitleFramework } from "../services/openaiService";
 import VideoGrid from "../components/yt-title-generator/VideoGrid";
 import TitleGeneratorModal from "../components/yt-title-generator/TitleGeneratorModal";
 import LoadMoreButton from "../components/yt-title-generator/LoadMoreButton";
+import VideoFilters from "../components/yt-title-generator/VideoFilters";
 
 const YouTubeTitleGenerator = () => {
   const [videos, setVideos] = useState([]);
@@ -114,21 +115,7 @@ const YouTubeTitleGenerator = () => {
     <div className="yt-title-generator-container">
       <h1 className="yt-title-generator-title">YouTube Title Generator</h1>
 
-      {/* Filter Dropdown */}
-      <div className="filter-container">
-        <label htmlFor="filter" className="filter-label">
-          Filter Videos:
-        </label>
-        <select
-          id="filter"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          className="filter-select"
-        >
-          <option value="Best Performers">Best Performers</option>
-          <option value="Your Saved Videos">Your Saved Videos</option>
-        </select>
-      </div>
+      <VideoFilters filter={filter} setFilter={setFilter} />
 
       {loading ? (
         <p>Loading...</p>
