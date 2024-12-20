@@ -1,3 +1,14 @@
+:root {
+  --primary-color: #020100;
+  --secondary-color: #fdfffc;
+  --accent-color: #ed1c24;
+  --highlight-color: #235789;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -46,4 +57,67 @@ textarea {
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.video-info {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.video-info img {
+  max-width: 100%;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+.video-info:hover {
+  transform: translateY(-5px);
+}
+
+.video-thumbnail {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.video-details {
+  text-align: left;
+  padding: 15px;
+}
+
+.video-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+.video-stats {
+  display: flex;
+  margin-top: 10px;
+}
+.video-views {
+  font-size: 16px;
+  color: #777;
+}
+.video-time {
+  font-size: 16px;
+  color: #777;
+  margin-left: 10px;
+}
+.channel-name {
+  font-size: 16px;
+  color: #555;
+}
+
+.outlier-message {
+  color: var(--accent-color);
+  margin-top: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }

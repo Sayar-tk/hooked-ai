@@ -90,39 +90,35 @@ function YouTubeCard({ video }) {
       <div className="video-details">
         <h3 className="video-title">{video.title}</h3>
         <p className="channel-name">{video.channelName}</p>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginTop: "10px",
-          }}
-        >
-          <p className="video-stats">{video.timeSinceUpload}</p>
-          <p className="video-stats" style={{ marginLeft: "10px" }}>
-            {video.views} views
+        <div className="video-stats">
+          <p className="video-views">{video.views} views</p>
+          <p className="video-time" style={{ marginLeft: "10px" }}>
+            {video.timeSinceUpload}
           </p>
         </div>
         <p className="outlier-message">
           <span>{video.outlierFactor}x</span> views over subscribers
         </p>
       </div>
-      {userRole === "admin" ? (
-        <button
-          onClick={openSaveModal}
-          className="button"
-          style={{ width: "auto", padding: "5px 10px" }}
-        >
-          Save Video
-        </button>
-      ) : (
-        <button
-          onClick={saveVideo}
-          className="button"
-          style={{ width: "auto", padding: "5px 10px" }}
-        >
-          Save Video
-        </button>
-      )}
+      <div className="button-container">
+        {userRole === "admin" ? (
+          <button
+            onClick={openSaveModal}
+            className="button"
+            style={{ width: "auto", padding: "5px 10px" }}
+          >
+            Save Video
+          </button>
+        ) : (
+          <button
+            onClick={saveVideo}
+            className="button"
+            style={{ width: "auto", padding: "5px 10px" }}
+          >
+            Save Video
+          </button>
+        )}
+      </div>
 
       {/* Modal for Admin Framework Input */}
       {showModal && (

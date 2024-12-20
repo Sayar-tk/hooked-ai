@@ -205,7 +205,7 @@ const YouTubeSearch = () => {
 
       {/* Load More Button */}
       {hasMoreVideos && !loading && filteredVideos.length > 0 && (
-        <button onClick={loadVideos} className="button">
+        <button onClick={loadVideos} className="loadmore-button">
           Load More
         </button>
       )}

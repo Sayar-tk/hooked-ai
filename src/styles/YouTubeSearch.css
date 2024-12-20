@@ -1,8 +1,10 @@
-/* src/styles.css  */
+/* src/styles/YouTubeSearch.css */
 
-* {
-  margin: 0px;
-  box-sizing: border-box;
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #fff;
+  --text-color: #333;
+  --error-color: red;
 }
 
 body {
@@ -16,7 +18,7 @@ body {
   max-width: 1200px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: var(--secondary-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   display: flex;
@@ -26,8 +28,9 @@ body {
 
 .title {
   text-align: center;
-  color: #333;
+  color: var(--text-color);
   margin-bottom: 20px;
+  font-size: 24px;
 }
 
 .button {
@@ -35,21 +38,37 @@ body {
   min-width: 200px;
   max-width: 300px;
   padding: 10px;
-  margin: 20px 0;
-  background-color: #007bff;
-  color: #fff;
+  margin: 0 0 20px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  text-align: center;
 }
-
-.button:disabled {
+.button:disabled,
+.loadmore-button:disabled {
   background-color: #b3d7ff;
   cursor: not-allowed;
 }
 
-.video-info {
+.loadmore-button {
+  display: block;
+  min-width: 200px;
+  max-width: 300px;
+  padding: 10px;
+  margin: 20px 0;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* .video-info {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -58,13 +77,8 @@ body {
   width: 100%;
 }
 
-.video-info h2 {
-  color: #444;
-}
-
 .video-info img {
-  max-width: 500px;
-  max-height: auto;
+  max-width: 100%;
   border-radius: 5px;
   margin-top: 15px;
   object-fit: contain;
@@ -87,7 +101,7 @@ body {
 .video-title {
   font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: var(--text-color);
   margin: 5px 0;
 }
 
@@ -95,24 +109,95 @@ body {
   font-size: 16px;
   color: #777;
   margin-left: 10px;
-}
-
-.outlier-message span {
-  font-size: 16px;
-  color: #007bff;
-}
-
-.outlier-message {
-  margin-top: 15px;
-}
+} */
 
 .error-message {
-  color: red;
+  color: var(--error-color);
   text-align: center;
   margin-top: 15px;
 }
 
-.channel-name {
+/* .channel-name {
   font-size: 16px;
   color: #555;
+} */
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  max-width: 250px;
+}
+
+.filter-label {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.filter-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 90%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .app-container {
+    margin: 0px;
+    padding: 15px;
+  }
+
+  .video-details,
+  .video-stats *,
+  .channel-name {
+    font-size: 14px;
+  }
+  .video-stats .button {
+    font-size: 14px;
+    padding: 8px;
+    min-width: 150px;
+  }
+
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    max-width: 100%;
+  }
+  /* .filter-input {
+    width: 95%;
+  } */
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .button {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .filters-container {
+    gap: 10px;
+  }
 }

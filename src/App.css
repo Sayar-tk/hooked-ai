@@ -1,4 +1,10 @@
 /* src/styles.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 :root {
   --primary-color: #020100;
   --secondary-color: #fdfffc;

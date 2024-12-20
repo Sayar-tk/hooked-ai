@@ -1,18 +1,10 @@
-// src/components/FilteredVideosGrid.js
 import React from "react";
 import YouTubeCard from "./YouTubeCard";
+import "../styles/FilteredVideosGrid.css"; // Move styles to a separate CSS file
 
 const FilteredVideosGrid = ({ videos }) => {
-  console.log("FilteredVideosGrid", videos);
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        gap: "15px",
-        marginTop: "20px",
-      }}
-    >
+    <div className="filtered-videos-grid">
       {videos.map((video, index) => (
         <YouTubeCard video={video} key={index} />
       ))}
