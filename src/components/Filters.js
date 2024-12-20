@@ -1,6 +1,6 @@
 // src/components/Filters.js
 import "../styles/Filters.css";
-import React, { useState } from "react";
+import React from "react";
 
 const Filters = ({ filters, setFilters }) => (
   <div className="filters-container">

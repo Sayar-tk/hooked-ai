@@ -59,7 +59,9 @@ function YouTubeCard({ video }) {
       timeSinceUpload: video.timeSinceUpload || "Unknown", // Default if not provided
       outlierFactor: video.outlierFactor ? String(video.outlierFactor) : "0", // Ensure string format
       views: video.views ? String(video.views) : "0", // Ensure views are strings
-      ...(userRole === "admin" && { titleFramework: editedFramework }), // Only add framework for admin
+      ...(userRole === "admin" && {
+        titleFramework: editedFramework ? editedFramework : framework,
+      }), // Only add framework for admin
     };
 
     try {
