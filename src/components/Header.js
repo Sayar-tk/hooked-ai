@@ -72,46 +72,48 @@ function Header() {
       <button className="hamburger-menu" onClick={toggleMenu}>
         ☰
       </button>
-      <nav className={`site-menu ${menuOpen ? "open" : ""}`}>
-        <ul className="nav-items">
-          <li className="nav-item">
-            <Link to="/yt-outlier" className="nav-item-link">
-              YouTube Outlier
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/youtube-title-generator" className="nav-item-link">
-              YouTube Title Generator
-            </Link>
-          </li>
-          <li className="nav-item">
+      <div className="site-menu-container">
+        <nav className={`site-menu ${menuOpen ? "open" : ""}`}>
+          <ul className="nav-items">
+            <li className="nav-item">
+              <Link to="/yt-outlier" className="nav-item-link">
+                YouTube Outlier
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/youtube-title-generator" className="nav-item-link">
+                YouTube Title Generator
+              </Link>
+            </li>
+            {/* <li className="nav-item">
             <Link to="/instagram-hooks-generator" className="nav-item-link">
               Instagram Hooks Generator
             </Link>
-          </li>
-        </ul>
-      </nav>
+          </li> */}
+          </ul>
+        </nav>
 
-      <div className="profile-section" ref={dropdownRef}>
-        <img
-          src={userData?.photoURL || "https://via.placeholder.com/40"}
-          alt="Profile"
-          className="profile-icon"
-          onClick={toggleDropdown}
-        />
-        {dropdownOpen && (
-          <div className="dropdown-menu">
-            <button
-              onClick={() => navigate("/profile")}
-              className="dropdown-item"
-            >
-              Profile
-            </button>
-            <button onClick={handleSignOut} className="dropdown-item">
-              Sign Out
-            </button>
-          </div>
-        )}
+        <div className="profile-section" ref={dropdownRef}>
+          <img
+            src={userData?.photoURL || "https://via.placeholder.com/40"}
+            alt="Profile"
+            className="profile-icon"
+            onClick={toggleDropdown}
+          />
+          {dropdownOpen && (
+            <div className="dropdown-menu">
+              <button
+                onClick={() => navigate("/profile")}
+                className="dropdown-item"
+              >
+                Profile
+              </button>
+              <button onClick={handleSignOut} className="dropdown-item">
+                Sign Out
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
