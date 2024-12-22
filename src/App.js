@@ -5,7 +5,7 @@ import YouTubeOutlier from "./pages/YouTubeOutlier";
 import YouTubeTitleGenerator from "./pages/YouTubeTitleGenerator";
 import InstagramHooksGenerator from "./pages/InstagramHooksGenerator";
 import Header from "./components/Header";
-import AuthScreen from "./components/AuthScreen";
+import AuthScreen from "./pages/AuthScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import {

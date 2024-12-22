@@ -1,5 +1,5 @@
 // src/components/Filters.js
-import "../styles/Filters.css";
+import "../../styles/Filters.css";
 import React from "react";
 
 const Filters = ({ filters, setFilters }) => (

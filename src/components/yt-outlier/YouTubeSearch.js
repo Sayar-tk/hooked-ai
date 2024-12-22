@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import axios from "axios";
 import FilteredVideosGrid from "./FilteredVideosGrid";
 import Filters from "./Filters";
-import "../styles/YouTubeSearch.css";
+import "../../styles/YouTubeSearch.css";
 import { fetchVideos, processVideos } from "../../services/youtubeApi";
 
 const YouTubeSearch = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import YouTubeCard from "./YouTubeCard";
-import "../styles/FilteredVideosGrid.css"; // Move styles to a separate CSS file
+import "../../styles/FilteredVideosGrid.css"; // Move styles to a separate CSS file
 
 const FilteredVideosGrid = ({ videos }) => {
   return (
