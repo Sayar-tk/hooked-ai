@@ -1,0 +1,49 @@
+.pricing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.pricing-plans {
+  display: flex;
+  gap: 20px;
+}
+
+.pricing-plan {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.pricing-plan h2 {
+  margin-bottom: 15px;
+}
+
+.pricing-plan ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pricing-plan li {
+  margin: 10px 0;
+}
+
+.subscribe-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.subscribe-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}

@@ -8,6 +8,8 @@ import Header from "./components/Header";
 import AuthScreen from "./pages/AuthScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
+import Pricing from "./pages/Pricing";
+
 import {
   getAuth,
   onAuthStateChanged,
@@ -91,6 +93,14 @@ const App = () => {
               element={
                 <ProtectedRoute>
                   <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/pricing"
+              element={
+                <ProtectedRoute>
+                  <Pricing />
                 </ProtectedRoute>
               }
             />
