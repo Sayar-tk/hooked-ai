@@ -1,49 +1,103 @@
 .pricing-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
+  text-align: center;
+}
+
+.pricing-title {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.pricing-subtitle {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 30px;
 }
 
 .pricing-plans {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
+  justify-content: center;
 }
 
-.pricing-plan {
-  border: 1px solid #ddd;
+.plan-card {
+  background: var(--secondary-color);
+  border: 1px solid var(--highlight-color);
   border-radius: 10px;
   padding: 20px;
-  width: 300px;
-  text-align: center;
-  background-color: #f9f9f9;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.pricing-plan h2 {
+.plan-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.plan-price {
+  font-size: 2rem;
+  color: var(--accent-color);
   margin-bottom: 15px;
 }
 
-.pricing-plan ul {
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.plan-features li {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.plan-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.plan-button:hover {
+  background: var(--highlight-color);
+}
+
+.why-credits {
+  margin-top: 40px;
+}
+
+.why-credits h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.why-credits ul {
   list-style: none;
   padding: 0;
 }
 
-.pricing-plan li {
+.why-credits ul li {
   margin: 10px 0;
+  font-size: 1rem;
+  color: var(--primary-color);
 }
 
-.subscribe-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
+.credit-plan-dropdown {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  cursor: pointer;
-}
-
-.subscribe-button:disabled {
-  background-color: #6c757d;
-  cursor: not-allowed;
+  font-size: 16px;
 }
