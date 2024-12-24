@@ -7,7 +7,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import { auth, provider, db } from "../firebaseConfig";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import updateCreditsWithExpiry from "../services/firebase";
+import { updateCreditsWithExpiry } from "../services/firebase";
+import { restoreFreeCredits } from "../services/firebase";
 
 const AuthScreen = () => {
   const navigate = useNavigate();
@@ -24,16 +25,32 @@ const AuthScreen = () => {
       const userDoc = await getDoc(userDocRef);
 
       if (!userDoc.exists()) {
+        // New user: Set default data and add free credits
         await setDoc(userDocRef, {
           name: user.displayName,
           email: user.email,
           photoURL: user.photoURL,
           uid: user.uid,
           role: "free", // Default role
-          remainingCredits: "20", //Default credits
+          remainingCredits: 20, // Default credits
         });
+        await updateCreditsWithExpiry(20, true); // Set free credits and expiry
+      } else {
+        // Existing user: Check for missing fields
+        const userData = userDoc.data();
+
+        if (!userData.remainingCredits || !userData.creditsExpiryDate) {
+          // Initialize missing fields for existing user
+          const currentCredits = userData.remainingCredits || 0;
+          const newCredits = currentCredits + 20; // Add default free credits
+
+          await updateCreditsWithExpiry(newCredits, true);
+        } else {
+          // Restore free credits if necessary
+          await restoreFreeCredits();
+        }
       }
-      updateCreditsWithExpiry(20, true);
+
       navigate("/yt-outlier");
     } catch (error) {
       console.error("Error signing in with Google: ", error);
@@ -56,21 +73,43 @@ const AuthScreen = () => {
         const userDoc = await getDoc(userDocRef);
 
         if (!userDoc.exists()) {
+          // New user: Set default data and add free credits
           await setDoc(userDocRef, {
             name: user.email.split("@")[0], // Use part of the email as the name
             email: user.email,
             photoURL: null,
             uid: user.uid,
             role: "free", // Default role
-            remainingCredits: "20", //Default credits
+            remainingCredits: 20, // Default credits
           });
+          await updateCreditsWithExpiry(20, true); // Set free credits and expiry
         }
-        updateCreditsWithExpiry(20, true);
         alert("Sign up successful! Redirecting...");
         navigate("/yt-outlier");
       } else {
         // Log in with email and password
-        await signInWithEmailAndPassword(auth, email, password);
+        const result = await signInWithEmailAndPassword(auth, email, password);
+        const user = result.user;
+
+        const userDocRef = doc(db, "users", user.uid);
+        const userDoc = await getDoc(userDocRef);
+
+        if (userDoc.exists()) {
+          // Existing user: Check for missing fields
+          const userData = userDoc.data();
+
+          if (!userData.remainingCredits || !userData.creditsExpiryDate) {
+            // Initialize missing fields for existing user
+            const currentCredits = userData.remainingCredits || 0;
+            const newCredits = currentCredits + 20; // Add default free credits
+
+            await updateCreditsWithExpiry(newCredits, true);
+          } else {
+            // Restore free credits if necessary
+            await restoreFreeCredits();
+          }
+        }
+
         navigate("/yt-outlier");
       }
     } catch (error) {

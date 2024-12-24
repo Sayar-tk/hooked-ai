@@ -9,7 +9,7 @@ import AuthScreen from "./pages/AuthScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Pricing from "./pages/Pricing";
-import checkCreditsExpiry from "./services/firebase";
+import { checkCreditsExpiry } from "./services/firebase";
 
 import {
   getAuth,
@@ -18,6 +18,8 @@ import {
   browserLocalPersistence,
 } from "firebase/auth";
 import { Navigate } from "react-router-dom";
+import PaymentSuccess from "./pages/payment/PaymentSuccess";
+import PaymentFailure from "./pages/payment/PaymentFailure";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -105,6 +107,22 @@ const App = () => {
               element={
                 <ProtectedRoute>
                   <Pricing />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/payment-success/:orderId"
+              element={
+                <ProtectedRoute>
+                  <PaymentSuccess />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/payment-failure"
+              element={
+                <ProtectedRoute>
+                  <PaymentFailure />
                 </ProtectedRoute>
               }
             />

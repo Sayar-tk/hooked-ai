@@ -74,7 +74,10 @@ export const restoreFreeCredits = async () => {
 export const checkCreditsExpiry = async () => {
   try {
     const user = auth.currentUser;
-    if (!user) throw new Error("User not authenticated.");
+    if (!user) {
+      console.warn("User not authenticated. Skipping credit expiry check.");
+      return; // Early exit if the user is not authenticated
+    }
 
     const userDocRef = doc(db, "users", user.uid);
     const userDocSnap = await getDoc(userDocRef);

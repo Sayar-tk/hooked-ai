@@ -7,7 +7,7 @@ import { db, auth } from "../firebaseConfig";
 import { PricingPlans } from "../components/payment/PricingPlans";
 import { CustomerDetailsModal } from "../components/payment/CustomerDetailsModal";
 import { WhyChooseCredits } from "../components/payment/WhyChooseCredits";
-import updateCreditsWithExpiry from "../services/firebase";
+import { updateCreditsWithExpiry } from "../services/firebase";
 
 const Pricing = () => {
   const [selectedCreditPlan, setSelectedCreditPlan] = useState("");
@@ -21,9 +21,9 @@ const Pricing = () => {
   });
 
   const creditPlans = {
-    "100 credits - ₹99": 99,
-    "300 credits - ₹279": 279,
-    "500 credits - ₹449": 449,
+    "100 credits - ₹99": { credits: 100, price: 99 },
+    "300 credits - ₹279": { credits: 300, price: 279 },
+    "500 credits - ₹449": { credits: 500, price: 449 },
   };
 
   // Fetch user data from Firebase
@@ -90,7 +90,7 @@ const Pricing = () => {
       setLoading(true);
       const response = await axios.post("http://localhost:5000/api/payment", {
         ...customerDetails,
-        order_amount: creditPlans[selectedCreditPlan],
+        order_amount: creditPlans[selectedCreditPlan]?.price,
       });
       setLoading(false);
       return response.data;
@@ -113,8 +113,14 @@ const Pricing = () => {
 
       const checkoutOptions = {
         paymentSessionId: sessionId,
-        returnUrl: "http://localhost:3000/yt-outlier",
+        returnUrl: "http://localhost:5000/api/status/{order_id}",
       };
+
+      // Store selected credits in localStorage for use in PaymentSuccess
+      localStorage.setItem(
+        "selectedPlanCredits",
+        creditPlans[selectedCreditPlan]?.credits || 0
+      );
 
       const result = await cashfree.checkout(checkoutOptions);
       if (result.error) {
@@ -124,7 +130,10 @@ const Pricing = () => {
         console.log("Redirection successful");
 
         // Add remaining credits to Firestore after successful payment
-        await updateCreditsWithExpiry(creditPlans[selectedCreditPlan], false);
+        await updateCreditsWithExpiry(
+          creditPlans[selectedCreditPlan]?.credits,
+          false
+        );
       }
     } catch (error) {
       console.error("Payment redirect failed:", error);
@@ -150,6 +159,7 @@ const Pricing = () => {
         onPlanChange={handleCreditPlanChange}
         onOpenModal={openModal}
         loading={loading}
+        creditPlans={creditPlans}
       />
       {isModalOpen && (
         <CustomerDetailsModal

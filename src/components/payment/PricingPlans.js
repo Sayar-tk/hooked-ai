@@ -9,6 +9,7 @@ export const PricingPlans = ({
   onPlanChange,
   onOpenModal,
   loading,
+  creditPlans,
 }) => (
   <div className="pricing-plans">
     <div className="plan-card">
@@ -25,9 +26,11 @@ export const PricingPlans = ({
     <div className="plan-card">
       <h2 className="plan-title">Credit Packs</h2>
       <ul className="plan-features">
-        <li>100 credits: ₹99</li>
-        <li>300 credits: ₹279</li>
-        <li>500 credits: ₹449</li>
+        {Object.entries(creditPlans).map(([plan, details]) => (
+          <li key={plan}>
+            {details.credits} credits: ₹{details.price}
+          </li>
+        ))}
       </ul>
       <select
         className="credit-plan-dropdown"
@@ -44,9 +47,12 @@ export const PricingPlans = ({
         ))}
       </select>
       {!loading ? (
-        <button className="plan-button" onClick={onOpenModal}>
-          Top Up Credits
-        </button>
+        <>
+          <button className="plan-button" onClick={onOpenModal}>
+            Top Up Credits
+          </button>
+          <p>All credit packs expire after 30 days from purchase</p>
+        </>
       ) : (
         <button className="plan-button" disabled>
           Processing...

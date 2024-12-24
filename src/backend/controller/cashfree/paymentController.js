@@ -1,4 +1,3 @@
-// const crypto =  require('crypto');
 const axios = require("axios");
 
 const newOrderId = async (req, res) => {
@@ -21,7 +20,7 @@ const newOrderId = async (req, res) => {
           customer_name: req.body.customer_name,
         },
         order_meta: {
-          return_url: "https://www.viralhooks.in/yt-outlier",
+          // return_url: "http://localhost:3000/payment-success",
           notify_url:
             "https://webhook.site/0fd25cd0-935d-4071-ad59-15ce2e71f1ae",
           payment_methods: "cc,dc,upi",
@@ -82,7 +81,7 @@ const checkStatus = async (req, res) => {
       url: `https://sandbox.cashfree.com/pg/orders/${orderid}`,
       headers: {
         accept: "application/json",
-        "x-api-version": "2024.09.12",
+        "x-api-version": "2023-08-01",
         "x-client-id": process.env.CASHFREE_CLIENT_ID,
         "x-client-secret": process.env.CASHFREE_CLIENT_SECRET,
       },
@@ -93,13 +92,15 @@ const checkStatus = async (req, res) => {
       .then(function (response) {
         console.log(response.data);
         if (response.data.order_status === "PAID") {
-          return res.redirect("http://localhost:3000/success");
+          return res.redirect(
+            `http://localhost:3000/payment-success/${orderid}`
+          );
         } else if (response.data.order_status === "ACTIVE") {
           return res.redirect(
-            `http://localhost:3000/${response.data.payment_session_id}`
+            `http://localhost:3000/pricing/${response.data.payment_session_id}`
           );
         } else {
-          return res.redirect("http://localhost:3000/failure");
+          return res.redirect("http://localhost:3000/payment-failure");
         }
       })
       .catch(function (error) {
