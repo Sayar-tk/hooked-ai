@@ -9,6 +9,7 @@ import AuthScreen from "./pages/AuthScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Pricing from "./pages/Pricing";
+import checkCreditsExpiry from "./services/firebase";
 
 import {
   getAuth,
@@ -41,6 +42,9 @@ const App = () => {
         console.error("Error setting persistence:", error);
         setLoading(false);
       });
+
+    //notify for credit expiry
+    checkCreditsExpiry();
   }, []);
 
   if (loading) {

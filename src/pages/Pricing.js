@@ -7,6 +7,7 @@ import { db, auth } from "../firebaseConfig";
 import { PricingPlans } from "../components/payment/PricingPlans";
 import { CustomerDetailsModal } from "../components/payment/CustomerDetailsModal";
 import { WhyChooseCredits } from "../components/payment/WhyChooseCredits";
+import updateCreditsWithExpiry from "../services/firebase";
 
 const Pricing = () => {
   const [selectedCreditPlan, setSelectedCreditPlan] = useState("");
@@ -103,8 +104,7 @@ const Pricing = () => {
     }
   };
 
-  const handlePaymentRedirect = async (e) => {
-    e.preventDefault();
+  const handlePaymentRedirect = async () => {
     try {
       const sessionId = await getSessionId();
       if (!sessionId) {
@@ -122,6 +122,9 @@ const Pricing = () => {
         alert(result.error.message);
       } else if (result.redirect) {
         console.log("Redirection successful");
+
+        // Add remaining credits to Firestore after successful payment
+        await updateCreditsWithExpiry(creditPlans[selectedCreditPlan], false);
       }
     } catch (error) {
       console.error("Payment redirect failed:", error);

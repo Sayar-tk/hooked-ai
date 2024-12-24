@@ -7,6 +7,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { auth, provider, db } from "../firebaseConfig";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import updateCreditsWithExpiry from "../services/firebase";
 
 const AuthScreen = () => {
   const navigate = useNavigate();
@@ -29,8 +30,10 @@ const AuthScreen = () => {
           photoURL: user.photoURL,
           uid: user.uid,
           role: "free", // Default role
+          remainingCredits: "20", //Default credits
         });
       }
+      updateCreditsWithExpiry(20, true);
       navigate("/yt-outlier");
     } catch (error) {
       console.error("Error signing in with Google: ", error);
@@ -59,8 +62,10 @@ const AuthScreen = () => {
             photoURL: null,
             uid: user.uid,
             role: "free", // Default role
+            remainingCredits: "20", //Default credits
           });
         }
+        updateCreditsWithExpiry(20, true);
         alert("Sign up successful! Redirecting...");
         navigate("/yt-outlier");
       } else {
