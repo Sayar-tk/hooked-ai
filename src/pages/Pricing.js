@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/PricingPage.css";
 import { cashfree } from "../services/cashfree";
 import axios from "axios";
+import { getDoc, doc } from "firebase/firestore";
+import { db, auth } from "../firebaseConfig";
+import { PricingPlans } from "../components/payment/PricingPlans";
+import { CustomerDetailsModal } from "../components/payment/CustomerDetailsModal";
+import { WhyChooseCredits } from "../components/payment/WhyChooseCredits";
 
 const Pricing = () => {
   const [selectedCreditPlan, setSelectedCreditPlan] = useState("");
@@ -20,6 +25,42 @@ const Pricing = () => {
     "500 credits - ₹449": 449,
   };
 
+  // Fetch user data from Firebase
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        setLoading(true);
+        const user = auth.currentUser;
+
+        if (!user) {
+          console.error("User not authenticated.");
+          return;
+        }
+
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setCustomerDetails({
+            ...customerDetails,
+            customer_name: data.name || "",
+            customer_email: data.email || "",
+            customer_phone: data.phone || "",
+          });
+        } else {
+          console.warn("No user data found in Firebase.");
+        }
+      } catch (error) {
+        console.error("Error fetching user data from Firebase:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (isModalOpen) fetchUserData();
+  }, [isModalOpen]);
+
   const handleCreditPlanChange = (event) => {
     setSelectedCreditPlan(event.target.value);
   };
@@ -33,7 +74,7 @@ const Pricing = () => {
 
   const openModal = () => {
     if (!selectedCreditPlan) {
-      alert("Please select a credit plan first.");
+      alert("Please select a plan first.");
       return;
     }
     setIsModalOpen(true);
@@ -44,16 +85,11 @@ const Pricing = () => {
   };
 
   const getSessionId = async () => {
-    if (!selectedCreditPlan || !creditPlans[selectedCreditPlan]) {
-      throw new Error("Invalid credit plan selected.");
-    }
-
     try {
       setLoading(true);
-      console.log("Order amount:", creditPlans[selectedCreditPlan]);
       const response = await axios.post("http://localhost:5000/api/payment", {
         ...customerDetails,
-        order_amount: creditPlans[selectedCreditPlan], // Dynamically set order amount
+        order_amount: creditPlans[selectedCreditPlan],
       });
       setLoading(false);
       return response.data;
@@ -63,7 +99,7 @@ const Pricing = () => {
         "Error generating session ID:",
         error.response?.data || error.message
       );
-      throw new Error("Failed to generate payment session ID.");
+      throw new Error("Failed to generate payment session ID");
     }
   };
 
@@ -72,7 +108,7 @@ const Pricing = () => {
     try {
       const sessionId = await getSessionId();
       if (!sessionId) {
-        throw new Error("Session ID is undefined.");
+        throw new Error("Session ID is undefined");
       }
 
       const checkoutOptions = {
@@ -85,7 +121,7 @@ const Pricing = () => {
         console.error("Cashfree Checkout Error:", result.error.message);
         alert(result.error.message);
       } else if (result.redirect) {
-        console.log("Redirection successful.");
+        console.log("Redirection successful");
       }
     } catch (error) {
       console.error("Payment redirect failed:", error);
@@ -95,16 +131,6 @@ const Pricing = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
-    if (
-      !customerDetails.customer_name ||
-      !customerDetails.customer_email ||
-      !customerDetails.customer_phone
-    ) {
-      alert("Please fill out all customer details.");
-      return;
-    }
-
     closeModal();
     handlePaymentRedirect(e);
   };
@@ -116,106 +142,22 @@ const Pricing = () => {
         Pay only for what you use. Get started with free monthly credits, and
         upgrade anytime with our credit packs.
       </p>
-
-      <div className="pricing-plans">
-        {/* Free Plan */}
-        <div className="plan-card">
-          <h2 className="plan-title">Free Plan</h2>
-          <p className="plan-price">Free</p>
-          <ul className="plan-features">
-            <li>20 credits/month</li>
-            <li>Basic feature access</li>
-            <li>Limited API calls</li>
-          </ul>
-          <button className="plan-button">Get Started</button>
-        </div>
-
-        {/* Credit Packs */}
-        <div className="plan-card">
-          <h2 className="plan-title">Credit Packs</h2>
-          <ul className="plan-features">
-            <li>100 credits: ₹99</li>
-            <li>300 credits: ₹279</li>
-            <li>500 credits: ₹449</li>
-          </ul>
-          <select
-            className="credit-plan-dropdown"
-            value={selectedCreditPlan}
-            onChange={handleCreditPlanChange}
-          >
-            <option value="" disabled>
-              Select a credit plan
-            </option>
-            {Object.keys(creditPlans).map((plan) => (
-              <option key={plan} value={plan}>
-                {plan}
-              </option>
-            ))}
-          </select>
-          {!loading ? (
-            <button className="plan-button" onClick={openModal}>
-              Top Up Credits
-            </button>
-          ) : (
-            <button className="plan-button" disabled>
-              Processing...
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* Modal for Customer Details */}
+      <PricingPlans
+        selectedCreditPlan={selectedCreditPlan}
+        onPlanChange={handleCreditPlanChange}
+        onOpenModal={openModal}
+        loading={loading}
+      />
       {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <h2>Enter Your Details</h2>
-            <form onSubmit={handleFormSubmit}>
-              <input
-                type="text"
-                name="customer_name"
-                placeholder="Name"
-                value={customerDetails.customer_name}
-                onChange={handleCustomerDetailsChange}
-                required
-              />
-              <input
-                type="email"
-                name="customer_email"
-                placeholder="Email"
-                value={customerDetails.customer_email}
-                onChange={handleCustomerDetailsChange}
-                required
-              />
-              <input
-                type="tel"
-                name="customer_phone"
-                placeholder="Phone"
-                value={customerDetails.customer_phone}
-                onChange={handleCustomerDetailsChange}
-                required
-              />
-              <button type="submit" className="plan-button">
-                Proceed to Pay
-              </button>
-            </form>
-            <button className="close-button" onClick={closeModal}>
-              Cancel
-            </button>
-          </div>
-        </div>
+        <CustomerDetailsModal
+          customerDetails={customerDetails}
+          onChange={handleCustomerDetailsChange}
+          onSubmit={handleFormSubmit}
+          onClose={closeModal}
+        />
       )}
-
-      {/* Why Choose Credits Section */}
-      <div className="why-credits">
-        <h2>Why Choose Credits?</h2>
-        <ul>
-          <li>Pay-as-you-go flexibility</li>
-          <li>No commitment</li>
-          <li>Credits never expire</li>
-        </ul>
-      </div>
+      <WhyChooseCredits />
     </div>
   );
 };
-
 export default Pricing;
