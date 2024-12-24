@@ -15,19 +15,19 @@ const newOrderId = async (req, res) => {
       },
       data: {
         customer_details: {
-          customer_id: "CID89898" + Date.now(),
-          customer_email: "sayarsidhik@gmail.com",
-          customer_phone: "6282579845",
-          customer_name: "Sayar",
+          customer_id: req.body.customer_id,
+          customer_email: req.body.customer_email,
+          customer_phone: req.body.customer_phone,
+          customer_name: req.body.customer_name,
         },
         order_meta: {
-          return_url: "https://www.cashfree.com/devstudio/thankyou",
+          return_url: "https://www.viralhooks.in/yt-outlier",
           notify_url:
             "https://webhook.site/0fd25cd0-935d-4071-ad59-15ce2e71f1ae",
-          // payment_methods: "cc", "dc", "nb", "wallet", "upi", "emi",
+          payment_methods: "cc,dc,upi",
         },
         order_id: "ORID665456" + Date.now(),
-        order_amount: 1,
+        order_amount: req.body.order_amount, // Use dynamic value
         order_currency: "INR",
         order_note: "Test order",
       },
