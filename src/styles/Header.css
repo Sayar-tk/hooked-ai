@@ -151,8 +151,10 @@
 
   .credits-display {
     position: fixed;
-    bottom: 10px;
-    right: 10px;
+    bottom: 0;
+    right: 0;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
   }
 
   .profile-section {

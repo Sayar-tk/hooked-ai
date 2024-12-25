@@ -12,6 +12,7 @@ const Filters = ({ filters, setFilters }) => (
         id="keyword"
         type="text"
         className="filter-input"
+        placeholder="Enter a keyword..."
         value={filters.keyword}
         onChange={(e) => setFilters({ ...filters, keyword: e.target.value })}
       />
