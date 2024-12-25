@@ -102,3 +102,39 @@ export const checkCreditsExpiry = async () => {
     throw error;
   }
 };
+
+// Deduct credits from the user's Firestore collection
+export const deductCredits = async (creditsToDeduct) => {
+  try {
+    const user = auth.currentUser;
+    if (!user) throw new Error("User is not authenticated.");
+
+    const userDocRef = doc(db, "users", user.uid);
+    const userDoc = await getDoc(userDocRef);
+
+    if (!userDoc.exists()) throw new Error("User data not found in Firestore.");
+
+    const userData = userDoc.data();
+    const currentCredits = userData.remainingCredits || 0;
+
+    if (currentCredits < creditsToDeduct) {
+      alert("Insufficient credits. Please top up your credits.");
+      return false; // Abort the operation if not enough credits
+    }
+
+    await updateDoc(userDocRef, {
+      remainingCredits: currentCredits - creditsToDeduct,
+    });
+
+    console.log(
+      `Deducted ${creditsToDeduct} credits. Remaining: ${
+        currentCredits - creditsToDeduct
+      }`
+    );
+    return true; // Allow the operation to proceed
+  } catch (err) {
+    console.error("Error deducting credits:", err);
+    alert("Error deducting credits. Please try again.");
+    return false;
+  }
+};

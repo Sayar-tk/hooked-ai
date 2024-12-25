@@ -7,6 +7,7 @@ import VideoGrid from "../components/yt-title-generator/VideoGrid";
 import TitleGeneratorModal from "../components/yt-title-generator/TitleGeneratorModal";
 import LoadMoreButton from "../components/yt-title-generator/LoadMoreButton";
 import VideoFilters from "../components/yt-title-generator/VideoFilters";
+import { deductCredits } from "../services/firebase";
 
 const YouTubeTitleGenerator = () => {
   const [videos, setVideos] = useState([]);
@@ -91,6 +92,9 @@ const YouTubeTitleGenerator = () => {
       if (video.titleFramework) {
         setFramework(video.titleFramework);
       } else {
+        const hasEnoughCredits = await deductCredits(0.5); // Deduct 0.5 credits
+        if (!hasEnoughCredits) return; // Abort if not enough credits
+
         const generatedFramework = await generateTitleFramework(video.title);
         setFramework(generatedFramework);
 

@@ -5,6 +5,7 @@ import {
   generateTitleFrameworks,
   generateTitlesFromFramework,
 } from "../../services/openaiService";
+import { deductCredits } from "../../services/firebase";
 import { auth, db } from "../../firebaseConfig";
 import { doc, updateDoc, getDoc } from "firebase/firestore";
 import "../../styles/TitleGeneratorModal.css";
@@ -51,6 +52,9 @@ const TitleGeneratorModal = ({
   const handleGenerateVariations = async () => {
     setVariationsLoading(true);
     try {
+      const hasEnoughCredits = await deductCredits(1); // Deduct 1 credits
+      if (!hasEnoughCredits) return; // Abort if not enough credits
+
       const variations = await generateTitleFrameworks(video.title);
       setTitleVariations(variations);
     } catch (error) {
@@ -70,6 +74,8 @@ const TitleGeneratorModal = ({
     setLoadingTitles(true);
     setGeneratedTitles([]);
     try {
+      const hasEnoughCredits = await deductCredits(1.5); // Deduct 1.5 credits
+      if (!hasEnoughCredits) return; // Abort if not enough credits
       const titles = await generateTitlesFromFramework(framework, videoIdea);
       setGeneratedTitles(titles);
     } catch (error) {

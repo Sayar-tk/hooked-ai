@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-// import axios from "axios";
 import FilteredVideosGrid from "./FilteredVideosGrid";
 import Filters from "./Filters";
 import "../../styles/YouTubeSearch.css";
 import { fetchVideos, processVideos } from "../../services/youtubeApi";
+import { deductCredits } from "../../services/firebase";
 
 const YouTubeSearch = () => {
   const [filteredVideos, setFilteredVideos] = useState([]);
@@ -21,6 +21,9 @@ const YouTubeSearch = () => {
 
   // Generate Videos with New Filters
   const generateVideos = async () => {
+    const hasEnoughCredits = await deductCredits(2); // Deduct 2 credits
+    if (!hasEnoughCredits) return; // Abort if not enough credits
+
     setFilteredVideos([]); // Clear existing videos
     setNextPageToken(null); // Reset pagination
     setHasMoreVideos(true); // Allow more videos to load
@@ -51,6 +54,9 @@ const YouTubeSearch = () => {
   // Load More Videos
   const loadVideos = async () => {
     if (!hasMoreVideos || !nextPageToken) return;
+
+    const hasEnoughCredits = await deductCredits(2); // Deduct 2 credits
+    if (!hasEnoughCredits) return; // Abort if not enough credits
 
     setLoading(true);
     setError("");

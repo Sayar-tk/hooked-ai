@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, db } from "../firebaseConfig";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import "../styles/Header.css";
 
 function Header() {
@@ -14,43 +14,33 @@ function Header() {
   const dropdownRef = useRef(null);
   const menuRef = useRef(null);
 
-  // Fetch user data and credits from Firestore
+  // Fetch user data and set up a real-time listener for credits
   useEffect(() => {
-    const fetchUserData = async () => {
-      if (user) {
-        try {
-          const userDoc = await getDoc(doc(db, "users", user.uid));
-          if (userDoc.exists()) {
-            const data = userDoc.data();
-            setUserData(data);
-          } else {
-            console.error("No user data found in Firestore");
-          }
-        } catch (error) {
-          console.error("Error fetching user data:", error);
-        }
-      }
-    };
+    if (user) {
+      const userDocRef = doc(db, "users", user.uid);
 
-    fetchUserData();
+      // Real-time listener for user data
+      const unsubscribe = onSnapshot(
+        userDocRef,
+        (docSnapshot) => {
+          if (docSnapshot.exists()) {
+            const data = docSnapshot.data();
+            setUserData(data);
+            setRemainingCredits(data.remainingCredits || 0); // Default to 0 if not available
+          } else {
+            console.error("User document does not exist.");
+          }
+        },
+        (error) => {
+          console.error("Error listening to Firestore document:", error);
+        }
+      );
+
+      // Cleanup listener on component unmount
+      return () => unsubscribe();
+    }
   }, [user]);
 
-  useEffect(() => {
-    const fetchUserCredits = async () => {
-      if (user) {
-        const userDoc = await getDoc(doc(db, "users", user.uid));
-
-        try {
-          const data = userDoc.data();
-          setRemainingCredits(data.remainingCredits || 0); // Default to 0 if not available
-        } catch (error) {
-          console.error("Error fetching user credits:", error);
-        }
-      }
-    };
-
-    fetchUserCredits();
-  }, []);
   const handleSignOut = async () => {
     try {
       await auth.signOut();
