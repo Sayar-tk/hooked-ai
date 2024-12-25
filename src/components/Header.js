@@ -12,6 +12,7 @@ function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const menuRef = useRef(null);
 
   // Fetch user data and credits from Firestore
   useEffect(() => {
@@ -67,6 +68,24 @@ function Header() {
     setMenuOpen(!menuOpen);
   };
 
+  // Collapse menu when clicking outside
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        !event.target.classList.contains("hamburger-menu")
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -90,7 +109,7 @@ function Header() {
       <button className="hamburger-menu" onClick={toggleMenu}>
         ☰
       </button>
-      <div className="site-menu-container">
+      <div className="site-menu-container" ref={menuRef}>
         <nav className={`site-menu ${menuOpen ? "open" : ""}`}>
           <ul className="nav-items">
             <li className="nav-item">
