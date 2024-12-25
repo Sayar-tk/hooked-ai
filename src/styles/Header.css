@@ -1,4 +1,3 @@
-/* src/styles/Header.css */
 :root {
   --primary-color: #020100;
   --secondary-color: #fdfffc;
@@ -34,13 +33,16 @@
 
 .site-menu-container {
   display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .site-menu {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-right: 20px; */
+  /* gap: 20px;
+  margin-right: 20px; */
 }
 
 .nav-items {
@@ -63,6 +65,8 @@
 
 .profile-section {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .profile-icon {
@@ -114,6 +118,13 @@
     display: block;
   }
 
+  .site-header {
+    /* flex-wrap: wrap; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .site-menu {
     display: none;
     flex-direction: column;
@@ -129,12 +140,42 @@
     display: flex;
   }
 
+  /* .site-logo {
+    font-size: 18px !important;
+  } */
+
   .nav-items {
     flex-direction: column;
     gap: 10px;
   }
 
+  .credits-display {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+  }
+
   .profile-section {
     margin-top: 10px;
+    /* order: 3;
+    width: 100%;
+    justify-content: center; */
   }
+}
+
+.credits-display {
+  font-size: 14px;
+  color: #2d3748;
+  margin: 0 10px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.credits-text {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #edf2f7;
+  border-radius: 5px;
+  color: #2b6cb0;
+  font-size: 14px;
 }

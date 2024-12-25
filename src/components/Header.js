@@ -1,4 +1,3 @@
-// src/components/Header.js
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, db } from "../firebaseConfig";
@@ -9,17 +8,20 @@ function Header() {
   const navigate = useNavigate();
   const user = auth.currentUser;
   const [userData, setUserData] = useState(null);
+  const [remainingCredits, setRemainingCredits] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  // Fetch user data and credits from Firestore
   useEffect(() => {
     const fetchUserData = async () => {
       if (user) {
         try {
           const userDoc = await getDoc(doc(db, "users", user.uid));
           if (userDoc.exists()) {
-            setUserData(userDoc.data());
+            const data = userDoc.data();
+            setUserData(data);
           } else {
             console.error("No user data found in Firestore");
           }
@@ -32,6 +34,22 @@ function Header() {
     fetchUserData();
   }, [user]);
 
+  useEffect(() => {
+    const fetchUserCredits = async () => {
+      if (user) {
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+
+        try {
+          const data = userDoc.data();
+          setRemainingCredits(data.remainingCredits || 0); // Default to 0 if not available
+        } catch (error) {
+          console.error("Error fetching user credits:", error);
+        }
+      }
+    };
+
+    fetchUserCredits();
+  }, []);
   const handleSignOut = async () => {
     try {
       await auth.signOut();
@@ -85,13 +103,17 @@ function Header() {
                 YouTube Title Generator
               </Link>
             </li>
-            {/* <li className="nav-item">
-            <Link to="/instagram-hooks-generator" className="nav-item-link">
-              Instagram Hooks Generator
-            </Link>
-          </li> */}
           </ul>
         </nav>
+
+        {/* Display Remaining Credits */}
+        <div className="credits-display">
+          {remainingCredits !== null ? (
+            <span className="credits-text">Credits: {remainingCredits}</span>
+          ) : (
+            <span className="credits-text">Loading Credits...</span>
+          )}
+        </div>
 
         <div className="profile-section" ref={dropdownRef}>
           <img
