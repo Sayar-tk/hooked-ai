@@ -89,8 +89,8 @@ const Pricing = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        // "https://us-central1-outlier-project.cloudfunctions.net/api/payment",
-        "http://localhost:5000/api/payment",
+        "https://urchin-app-iasht.ondigitalocean.app/api/payment",
+        // "http://localhost:5000/api/payment",
         {
           ...customerDetails,
           order_amount: creditPlans[selectedCreditPlan]?.price,
@@ -118,8 +118,8 @@ const Pricing = () => {
       const checkoutOptions = {
         paymentSessionId: sessionId,
         returnUrl:
-          // "https://us-central1-outlier-project.cloudfunctions.net/api/status/{order_id}",
-        "http://localhost:5000/api/status/{order_id}",
+          "https://urchin-app-iasht.ondigitalocean.app/api/status/{order_id}",
+        // "http://localhost:5000/api/status/{order_id}",
       };
 
       // Store selected credits in localStorage for use in PaymentSuccess
