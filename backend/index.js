@@ -2,7 +2,7 @@ console.log("Starting server.js...");
 
 const express = require("express");
 const app = express();
-const port = 5000;
+const port = process.env.PORT;
 const cors = require("cors");
 require("dotenv").config();
 
