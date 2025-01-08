@@ -1,0 +1,1081 @@
+[debug] [2024-12-28T19:41:37.646Z] ----------------------------------------------------------------------
+[debug] [2024-12-28T19:41:37.652Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sayar\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --debug
+[debug] [2024-12-28T19:41:37.654Z] CLI Version:   13.29.1
+[debug] [2024-12-28T19:41:37.654Z] Platform:      win32
+[debug] [2024-12-28T19:41:37.654Z] Node Version:  v18.18.2
+[debug] [2024-12-28T19:41:37.656Z] Time:          Sun Dec 29 2024 01:11:37 GMT+0530 (India Standard Time)
+[debug] [2024-12-28T19:41:37.657Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-28T19:41:37.834Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-28T19:41:37.839Z] > authorizing via signed-in user (sayarsidhik@gmail.com)
+[debug] [2024-12-28T19:41:37.840Z] [iam] checking project outlier-project for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-12-28T19:41:37.845Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:37.846Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:37.851Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions [none]
+[debug] [2024-12-28T19:41:37.852Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:41:37.854Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-12-28T19:41:39.423Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions 200
+[debug] [2024-12-28T19:41:39.424Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-12-28T19:41:39.426Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:39.427Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:39.428Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-12-28T19:41:39.429Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-12-28T19:41:40.941Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-12-28T19:41:40.942Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'outlier-project'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2024-12-28T19:41:47.773Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:47.774Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:47.774Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project [none]
+[debug] [2024-12-28T19:41:49.643Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project 200
+[debug] [2024-12-28T19:41:49.643Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project {"projectNumber":"632305594805","projectId":"outlier-project","lifecycleState":"ACTIVE","name":"YouTube Outlier Project","labels":{"firebase":"enabled"},"createTime":"2024-11-14T15:12:10.713808Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2024-12-28T19:41:49.648Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:49.649Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:49.650Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:49.651Z] Checked if tokens are valid: true, expires at: 1735415942179
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2024-12-28T19:41:49.652Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:49.654Z] Checked if tokens are valid: true, expires at: 1735415942179
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-12-28T19:41:49.655Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:49.656Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:49.657Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-12-28T19:41:49.657Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:41:49.662Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-12-28T19:41:49.667Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:41:49.671Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com [none]
+[debug] [2024-12-28T19:41:49.672Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:41:49.675Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com [none]
+[debug] [2024-12-28T19:41:49.676Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:41:51.448Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com 200
+[debug] [2024-12-28T19:41:51.450Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-12-28T19:41:52.366Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com 200
+[debug] [2024-12-28T19:41:52.367Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-12-28T19:41:52.394Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com 200
+[debug] [2024-12-28T19:41:52.395Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-12-28T19:41:53.550Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com 200
+[debug] [2024-12-28T19:41:53.551Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-12-28T19:41:53.552Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:53.552Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:53.553Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/outlier-project/adminSdkConfig [none]
+[debug] [2024-12-28T19:41:54.356Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/outlier-project/adminSdkConfig 200
+[debug] [2024-12-28T19:41:54.359Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/outlier-project/adminSdkConfig {"projectId":"outlier-project","storageBucket":"outlier-project.firebasestorage.app"}
+[debug] [2024-12-28T19:41:54.360Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:54.361Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:54.361Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/outlier-project/configs [none]
+[debug] [2024-12-28T19:41:54.906Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/outlier-project/configs 200
+[debug] [2024-12-28T19:41:54.908Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/outlier-project/configs {}
+[debug] [2024-12-28T19:41:54.913Z] Validating nodejs source
+[debug] [2024-12-28T19:41:57.859Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-28T19:41:57.864Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-12-28T19:41:57.868Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-28T19:41:57.883Z] Found firebase-functions binary at 'D:\YouTube API Project\youtube-outlier-finder\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8344
+
+[debug] [2024-12-28T19:41:59.011Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2024-12-28T19:41:59.057Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:59.058Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:41:59.059Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com [none]
+[debug] [2024-12-28T19:41:59.059Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:42:00.812Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com 200
+[debug] [2024-12-28T19:42:00.813Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com [omitted]
+[info] +  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2024-12-28T19:42:00.816Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-28T19:42:00.817Z] > authorizing via signed-in user (sayarsidhik@gmail.com)
+[debug] [2024-12-28T19:42:00.818Z] [iam] checking project outlier-project for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2024-12-28T19:42:00.819Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:00.819Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:00.820Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions [none]
+[debug] [2024-12-28T19:42:00.820Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:42:00.821Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2024-12-28T19:42:02.238Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions 200
+[debug] [2024-12-28T19:42:02.239Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2024-12-28T19:42:02.240Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:02.241Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:02.243Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/outlier-project/instances pageSize=100&pageToken=
+[debug] [2024-12-28T19:42:03.795Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/outlier-project/instances 200
+[debug] [2024-12-28T19:42:03.795Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/outlier-project/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged D:\YouTube API Project\youtube-outlier-finder\functions (134.28 KB) for uploading 
+[debug] [2024-12-28T19:42:03.913Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:03.914Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:03.915Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/outlier-project/locations/-/functions [none]
+[debug] [2024-12-28T19:42:04.732Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/outlier-project/locations/-/functions 200
+[debug] [2024-12-28T19:42:04.732Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/outlier-project/locations/-/functions {}
+[debug] [2024-12-28T19:42:04.734Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:04.734Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:04.735Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2024-12-28T19:42:06.377Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/-/functions 200
+[debug] [2024-12-28T19:42:06.378Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/-/functions {"functions":[{"name":"projects/outlier-project/locations/us-central1/functions/api","buildConfig":{"build":"projects/632305594805/locations/us-central1/builds/c7d2c046-7426-4b01-9ca0-8d7ba8b6c62e","runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"api/function-source.zip","generation":"1735413443901459"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/outlier-project/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}","GCLOUD_PROJECT":"outlier-project","EVENTARC_CLOUD_EVENT_SOURCE":"projects/outlier-project/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"maxInstanceCount":100,"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"632305594805-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00001-teh","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","updateTime":"2024-12-28T19:18:19.075931253Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"69c9bee8ebe1d621a23e5a74d5fcfe20ae1113ac"},"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/api","createTime":"2024-12-25T18:34:23.279440534Z"}]}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[debug] [2024-12-28T19:42:06.388Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:06.389Z] Checked if tokens are valid: true, expires at: 1735415942179
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[debug] [2024-12-28T19:42:06.391Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:06.391Z] Checked if tokens are valid: true, expires at: 1735415942179
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[debug] [2024-12-28T19:42:06.393Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:06.393Z] Checked if tokens are valid: true, expires at: 1735415942179
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[debug] [2024-12-28T19:42:06.395Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:06.395Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:06.396Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com [none]
+[debug] [2024-12-28T19:42:06.397Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:42:06.402Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com [none]
+[debug] [2024-12-28T19:42:06.403Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:42:06.408Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com [none]
+[debug] [2024-12-28T19:42:06.409Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:42:06.413Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com [none]
+[debug] [2024-12-28T19:42:06.414Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:42:08.492Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com 200
+[debug] [2024-12-28T19:42:08.493Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com [omitted]
+[info] +  functions: required API pubsub.googleapis.com is enabled 
+[debug] [2024-12-28T19:42:08.496Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com 200
+[debug] [2024-12-28T19:42:08.497Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com [omitted]
+[info] +  functions: required API eventarc.googleapis.com is enabled 
+[debug] [2024-12-28T19:42:08.501Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com 200
+[debug] [2024-12-28T19:42:08.502Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com [omitted]
+[info] +  functions: required API run.googleapis.com is enabled 
+[debug] [2024-12-28T19:42:08.505Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com 200
+[debug] [2024-12-28T19:42:08.508Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com [omitted]
+[info] +  functions: required API storage.googleapis.com is enabled 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2024-12-28T19:42:08.511Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:08.512Z] Checked if tokens are valid: true, expires at: 1735415942179
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2024-12-28T19:42:08.514Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:08.514Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:08.515Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2024-12-28T19:42:08.521Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2024-12-28T19:42:10.232Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2024-12-28T19:42:10.233Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-632305594805@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"110370449579005779292"}}
+[debug] [2024-12-28T19:42:10.234Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2024-12-28T19:42:10.235Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-632305594805@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"107129133161364094807"}}
+[debug] [2024-12-28T19:42:10.240Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:10.241Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:10.242Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project [none]
+[debug] [2024-12-28T19:42:11.668Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project 200
+[debug] [2024-12-28T19:42:11.668Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project {"projectNumber":"632305594805","projectId":"outlier-project","lifecycleState":"ACTIVE","name":"YouTube Outlier Project","labels":{"firebase":"enabled"},"createTime":"2024-11-14T15:12:10.713808Z"}
+[debug] [2024-12-28T19:42:11.672Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:11.673Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:11.673Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/outlier-project/billingInfo [none]
+[debug] [2024-12-28T19:42:13.305Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/outlier-project/billingInfo 200
+[debug] [2024-12-28T19:42:13.306Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/outlier-project/billingInfo {"name":"projects/outlier-project/billingInfo","projectId":"outlier-project","billingAccountName":"billingAccounts/015A4A-FB6749-9D3BA2","billingEnabled":true}
+[info] i  functions: Skipping the deploy of unchanged functions. 
+[info] +  functions[api(us-central1)] Skipped (No changes detected) 
+[debug] [2024-12-28T19:42:13.323Z] Total Function Deployment time: 1
+[debug] [2024-12-28T19:42:13.324Z] 0 Functions Deployed
+[debug] [2024-12-28T19:42:13.324Z] 0 Functions Errored
+[debug] [2024-12-28T19:42:13.324Z] 0 Function Deployments Aborted
+[debug] [2024-12-28T19:42:13.325Z] Average Function Deployment time: NaN
+[debug] [2024-12-28T19:42:13.483Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[info] i  functions: cleaning up build files... 
+[debug] [2024-12-28T19:42:13.486Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:13.487Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:13.489Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:13.490Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:13.490Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/api [none]
+[debug] [2024-12-28T19:42:13.494Z] >>> [apiv2][query] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list [none]
+[debug] [2024-12-28T19:42:14.635Z] <<< [apiv2][status] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list 404
+[debug] [2024-12-28T19:42:14.636Z] <<< [apiv2][body] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-12-28T19:42:14.637Z] Failed docker command with error  Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[debug] [2024-12-28T19:42:14.640Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:14.641Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:14.642Z] >>> [apiv2][query] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list [none]
+[debug] [2024-12-28T19:42:15.140Z] <<< [apiv2][status] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list 404
+[debug] [2024-12-28T19:42:15.141Z] <<< [apiv2][body] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-12-28T19:42:15.143Z] Failed docker command with error  Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[debug] [2024-12-28T19:42:15.249Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:15.250Z] Checked if tokens are valid: true, expires at: 1735415942179
+[debug] [2024-12-28T19:42:15.251Z] >>> [apiv2][query] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list [none]
+[debug] [2024-12-28T19:42:15.469Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/api 404
+[debug] [2024-12-28T19:42:15.470Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/api {"error":{"code":404,"message":"Package \"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/api\" was not found.","status":"NOT_FOUND"}}
+[debug] [2024-12-28T19:42:15.858Z] <<< [apiv2][status] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list 404
+[debug] [2024-12-28T19:42:15.859Z] <<< [apiv2][body] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-12-28T19:42:15.860Z] Failed docker command with error  Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[warn] !  functions: Unhandled error cleaning up build images. This could result in a small monthly bill if not corrected. You can attempt to delete these images by redeploying or you can delete them manually at https://console.cloud.google.com/gcr/images/outlier-project/us/gcf 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/outlier-project/overview
+[debug] [2024-12-28T19:46:45.470Z] ----------------------------------------------------------------------
+[debug] [2024-12-28T19:46:45.472Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sayar\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --debug
+[debug] [2024-12-28T19:46:45.473Z] CLI Version:   13.29.1
+[debug] [2024-12-28T19:46:45.473Z] Platform:      win32
+[debug] [2024-12-28T19:46:45.473Z] Node Version:  v18.18.2
+[debug] [2024-12-28T19:46:45.474Z] Time:          Sun Dec 29 2024 01:16:45 GMT+0530 (India Standard Time)
+[debug] [2024-12-28T19:46:45.475Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-28T19:46:45.571Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-28T19:46:45.574Z] > authorizing via signed-in user (sayarsidhik@gmail.com)
+[debug] [2024-12-28T19:46:45.575Z] [iam] checking project outlier-project for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-12-28T19:46:45.577Z] Checked if tokens are valid: false, expires at: 1735415942179
+[debug] [2024-12-28T19:46:45.578Z] Checked if tokens are valid: false, expires at: 1735415942179
+[debug] [2024-12-28T19:46:45.579Z] > refreshing access token with scopes: []
+[debug] [2024-12-28T19:46:45.582Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-12-28T19:46:45.582Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-12-28T19:46:46.510Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-12-28T19:46:46.511Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-12-28T19:46:46.534Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions [none]
+[debug] [2024-12-28T19:46:46.536Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:46:46.538Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-12-28T19:46:48.162Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions 200
+[debug] [2024-12-28T19:46:48.163Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-12-28T19:46:48.164Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:46:48.165Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:46:48.166Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-12-28T19:46:48.166Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-12-28T19:46:51.109Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-12-28T19:46:51.110Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'outlier-project'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2024-12-28T19:46:58.018Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:46:58.018Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:46:58.019Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project [none]
+[debug] [2024-12-28T19:46:59.512Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project 200
+[debug] [2024-12-28T19:46:59.513Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project {"projectNumber":"632305594805","projectId":"outlier-project","lifecycleState":"ACTIVE","name":"YouTube Outlier Project","labels":{"firebase":"enabled"},"createTime":"2024-11-14T15:12:10.713808Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2024-12-28T19:46:59.518Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:46:59.518Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:46:59.519Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:46:59.520Z] Checked if tokens are valid: true, expires at: 1735418805513
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2024-12-28T19:46:59.521Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:46:59.521Z] Checked if tokens are valid: true, expires at: 1735418805513
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-12-28T19:46:59.522Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:46:59.523Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:46:59.523Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-12-28T19:46:59.524Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:46:59.526Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-12-28T19:46:59.527Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:46:59.529Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com [none]
+[debug] [2024-12-28T19:46:59.530Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:46:59.532Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com [none]
+[debug] [2024-12-28T19:46:59.533Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:47:06.582Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com 200
+[debug] [2024-12-28T19:47:06.583Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-12-28T19:47:06.587Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com 200
+[debug] [2024-12-28T19:47:06.587Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-12-28T19:47:06.589Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com 200
+[debug] [2024-12-28T19:47:06.589Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-12-28T19:47:12.830Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com 200
+[debug] [2024-12-28T19:47:12.832Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-12-28T19:47:12.834Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:12.835Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:12.836Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/outlier-project/adminSdkConfig [none]
+[debug] [2024-12-28T19:47:13.643Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/outlier-project/adminSdkConfig 200
+[debug] [2024-12-28T19:47:13.644Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/outlier-project/adminSdkConfig {"projectId":"outlier-project","storageBucket":"outlier-project.firebasestorage.app"}
+[debug] [2024-12-28T19:47:13.645Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:13.646Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:13.647Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/outlier-project/configs [none]
+[debug] [2024-12-28T19:47:14.259Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/outlier-project/configs 200
+[debug] [2024-12-28T19:47:14.260Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/outlier-project/configs {}
+[debug] [2024-12-28T19:47:14.264Z] Validating nodejs source
+[debug] [2024-12-28T19:47:17.304Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-28T19:47:17.307Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-12-28T19:47:17.309Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-28T19:47:17.322Z] Found firebase-functions binary at 'D:\YouTube API Project\youtube-outlier-finder\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8770
+
+[debug] [2024-12-28T19:47:18.256Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2024-12-28T19:47:18.309Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:18.309Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:18.310Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com [none]
+[debug] [2024-12-28T19:47:18.311Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:47:19.895Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com 200
+[debug] [2024-12-28T19:47:19.896Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com [omitted]
+[info] +  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2024-12-28T19:47:19.897Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-28T19:47:19.898Z] > authorizing via signed-in user (sayarsidhik@gmail.com)
+[debug] [2024-12-28T19:47:19.898Z] [iam] checking project outlier-project for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2024-12-28T19:47:19.899Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:19.899Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:19.900Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions [none]
+[debug] [2024-12-28T19:47:19.900Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:47:19.900Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2024-12-28T19:47:21.320Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions 200
+[debug] [2024-12-28T19:47:21.321Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2024-12-28T19:47:21.322Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:21.323Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:21.325Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/outlier-project/instances pageSize=100&pageToken=
+[debug] [2024-12-28T19:47:23.678Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/outlier-project/instances 200
+[debug] [2024-12-28T19:47:23.679Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/outlier-project/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged D:\YouTube API Project\youtube-outlier-finder\functions (134.28 KB) for uploading 
+[debug] [2024-12-28T19:47:23.791Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:23.792Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:23.792Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/outlier-project/locations/-/functions [none]
+[debug] [2024-12-28T19:47:25.115Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/outlier-project/locations/-/functions 200
+[debug] [2024-12-28T19:47:25.116Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/outlier-project/locations/-/functions {}
+[debug] [2024-12-28T19:47:25.117Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:25.118Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:25.120Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2024-12-28T19:47:27.872Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/-/functions 200
+[debug] [2024-12-28T19:47:27.873Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/-/functions {"functions":[{"name":"projects/outlier-project/locations/us-central1/functions/api","buildConfig":{"build":"projects/632305594805/locations/us-central1/builds/c7d2c046-7426-4b01-9ca0-8d7ba8b6c62e","runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"api/function-source.zip","generation":"1735413443901459"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/outlier-project/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}","GCLOUD_PROJECT":"outlier-project","EVENTARC_CLOUD_EVENT_SOURCE":"projects/outlier-project/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"maxInstanceCount":100,"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"632305594805-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"api-00001-teh","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","updateTime":"2024-12-28T19:18:19.075931253Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"69c9bee8ebe1d621a23e5a74d5fcfe20ae1113ac"},"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/api","createTime":"2024-12-25T18:34:23.279440534Z"}]}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[debug] [2024-12-28T19:47:27.881Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:27.882Z] Checked if tokens are valid: true, expires at: 1735418805513
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[debug] [2024-12-28T19:47:27.883Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:27.884Z] Checked if tokens are valid: true, expires at: 1735418805513
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[debug] [2024-12-28T19:47:27.885Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:27.886Z] Checked if tokens are valid: true, expires at: 1735418805513
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[debug] [2024-12-28T19:47:27.888Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:27.888Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:27.889Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com [none]
+[debug] [2024-12-28T19:47:27.890Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:47:27.895Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com [none]
+[debug] [2024-12-28T19:47:27.896Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:47:27.903Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com [none]
+[debug] [2024-12-28T19:47:27.904Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:47:27.909Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com [none]
+[debug] [2024-12-28T19:47:27.910Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-28T19:47:29.475Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com 200
+[debug] [2024-12-28T19:47:29.476Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com [omitted]
+[info] +  functions: required API eventarc.googleapis.com is enabled 
+[debug] [2024-12-28T19:47:29.481Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com 200
+[debug] [2024-12-28T19:47:29.482Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com [omitted]
+[info] +  functions: required API run.googleapis.com is enabled 
+[debug] [2024-12-28T19:47:29.493Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com 200
+[debug] [2024-12-28T19:47:29.494Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com [omitted]
+[info] +  functions: required API storage.googleapis.com is enabled 
+[debug] [2024-12-28T19:47:29.514Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com 200
+[debug] [2024-12-28T19:47:29.516Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com [omitted]
+[info] +  functions: required API pubsub.googleapis.com is enabled 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2024-12-28T19:47:29.517Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:29.518Z] Checked if tokens are valid: true, expires at: 1735418805513
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2024-12-28T19:47:29.519Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:29.519Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:29.520Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2024-12-28T19:47:29.522Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2024-12-28T19:47:31.360Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2024-12-28T19:47:31.362Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-632305594805@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"107129133161364094807"}}
+[debug] [2024-12-28T19:47:31.456Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2024-12-28T19:47:31.457Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-632305594805@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"110370449579005779292"}}
+[debug] [2024-12-28T19:47:31.463Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:31.464Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:31.467Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project [none]
+[debug] [2024-12-28T19:47:32.837Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project 200
+[debug] [2024-12-28T19:47:32.838Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project {"projectNumber":"632305594805","projectId":"outlier-project","lifecycleState":"ACTIVE","name":"YouTube Outlier Project","labels":{"firebase":"enabled"},"createTime":"2024-11-14T15:12:10.713808Z"}
+[debug] [2024-12-28T19:47:32.840Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:32.841Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:32.842Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/outlier-project/billingInfo [none]
+[debug] [2024-12-28T19:47:34.431Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/outlier-project/billingInfo 200
+[debug] [2024-12-28T19:47:34.432Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/outlier-project/billingInfo {"name":"projects/outlier-project/billingInfo","projectId":"outlier-project","billingAccountName":"billingAccounts/015A4A-FB6749-9D3BA2","billingEnabled":true}
+[info] i  functions: Skipping the deploy of unchanged functions. 
+[info] +  functions[api(us-central1)] Skipped (No changes detected) 
+[debug] [2024-12-28T19:47:34.452Z] Total Function Deployment time: 2
+[debug] [2024-12-28T19:47:34.452Z] 0 Functions Deployed
+[debug] [2024-12-28T19:47:34.453Z] 0 Functions Errored
+[debug] [2024-12-28T19:47:34.453Z] 0 Function Deployments Aborted
+[debug] [2024-12-28T19:47:34.454Z] Average Function Deployment time: NaN
+[debug] [2024-12-28T19:47:34.712Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[info] i  functions: cleaning up build files... 
+[debug] [2024-12-28T19:47:34.716Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:34.717Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:34.719Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:34.720Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:34.720Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/api [none]
+[debug] [2024-12-28T19:47:34.724Z] >>> [apiv2][query] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list [none]
+[debug] [2024-12-28T19:47:35.452Z] <<< [apiv2][status] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list 404
+[debug] [2024-12-28T19:47:35.452Z] <<< [apiv2][body] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-12-28T19:47:35.455Z] Failed docker command with error  Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[debug] [2024-12-28T19:47:35.459Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:35.460Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:35.460Z] >>> [apiv2][query] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list [none]
+[debug] [2024-12-28T19:47:35.963Z] <<< [apiv2][status] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list 404
+[debug] [2024-12-28T19:47:35.964Z] <<< [apiv2][body] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-12-28T19:47:35.965Z] Failed docker command with error  Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[debug] [2024-12-28T19:47:36.077Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:36.077Z] Checked if tokens are valid: true, expires at: 1735418805513
+[debug] [2024-12-28T19:47:36.078Z] >>> [apiv2][query] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list [none]
+[debug] [2024-12-28T19:47:36.243Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/api 404
+[debug] [2024-12-28T19:47:36.244Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/api {"error":{"code":404,"message":"Package \"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/api\" was not found.","status":"NOT_FOUND"}}
+[debug] [2024-12-28T19:47:36.623Z] <<< [apiv2][status] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list 404
+[debug] [2024-12-28T19:47:36.623Z] <<< [apiv2][body] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-12-28T19:47:36.625Z] Failed docker command with error  Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[warn] !  functions: Unhandled error cleaning up build images. This could result in a small monthly bill if not corrected. You can attempt to delete these images by redeploying or you can delete them manually at https://console.cloud.google.com/gcr/images/outlier-project/us/gcf 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/outlier-project/overview
+[debug] [2024-12-29T04:51:47.920Z] ----------------------------------------------------------------------
+[debug] [2024-12-29T04:51:47.923Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sayar\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --debug
+[debug] [2024-12-29T04:51:47.925Z] CLI Version:   13.29.1
+[debug] [2024-12-29T04:51:47.925Z] Platform:      win32
+[debug] [2024-12-29T04:51:47.925Z] Node Version:  v18.18.2
+[debug] [2024-12-29T04:51:47.926Z] Time:          Sun Dec 29 2024 10:21:47 GMT+0530 (India Standard Time)
+[debug] [2024-12-29T04:51:47.927Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-29T04:51:48.074Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-29T04:51:48.077Z] > authorizing via signed-in user (sayarsidhik@gmail.com)
+[debug] [2024-12-29T04:51:48.078Z] [iam] checking project outlier-project for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-12-29T04:51:48.080Z] Checked if tokens are valid: false, expires at: 1735418805513
+[debug] [2024-12-29T04:51:48.081Z] Checked if tokens are valid: false, expires at: 1735418805513
+[debug] [2024-12-29T04:51:48.082Z] > refreshing access token with scopes: []
+[debug] [2024-12-29T04:51:48.084Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-12-29T04:51:48.085Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-12-29T04:51:48.551Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-12-29T04:51:48.552Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-12-29T04:51:48.566Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions [none]
+[debug] [2024-12-29T04:51:48.567Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T04:51:48.567Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-12-29T04:51:50.134Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions 200
+[debug] [2024-12-29T04:51:50.135Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-12-29T04:51:50.135Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:51:50.136Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:51:50.136Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-12-29T04:51:50.136Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-12-29T04:51:51.893Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-12-29T04:51:51.894Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'outlier-project'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2024-12-29T04:51:59.925Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:51:59.925Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:51:59.926Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project [none]
+[debug] [2024-12-29T04:52:01.356Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project 200
+[debug] [2024-12-29T04:52:01.357Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project {"projectNumber":"632305594805","projectId":"outlier-project","lifecycleState":"ACTIVE","name":"YouTube Outlier Project","labels":{"firebase":"enabled"},"createTime":"2024-11-14T15:12:10.713808Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2024-12-29T04:52:01.360Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:01.360Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:01.361Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:01.361Z] Checked if tokens are valid: true, expires at: 1735451507552
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2024-12-29T04:52:01.362Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:01.363Z] Checked if tokens are valid: true, expires at: 1735451507552
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-12-29T04:52:01.363Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:01.363Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:01.364Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-12-29T04:52:01.364Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T04:52:01.366Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-12-29T04:52:01.366Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T04:52:01.368Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com [none]
+[debug] [2024-12-29T04:52:01.368Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T04:52:01.370Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com [none]
+[debug] [2024-12-29T04:52:01.371Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T04:52:03.069Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com 200
+[debug] [2024-12-29T04:52:03.069Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-12-29T04:52:03.073Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com 200
+[debug] [2024-12-29T04:52:03.077Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-12-29T04:52:03.082Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com 200
+[debug] [2024-12-29T04:52:03.082Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-12-29T04:52:03.119Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com 200
+[debug] [2024-12-29T04:52:03.120Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-12-29T04:52:03.121Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:03.121Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:03.122Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/outlier-project/adminSdkConfig [none]
+[debug] [2024-12-29T04:52:03.595Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/outlier-project/adminSdkConfig 200
+[debug] [2024-12-29T04:52:03.596Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/outlier-project/adminSdkConfig {"projectId":"outlier-project","storageBucket":"outlier-project.firebasestorage.app"}
+[debug] [2024-12-29T04:52:03.597Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:03.597Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:03.598Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/outlier-project/configs [none]
+[debug] [2024-12-29T04:52:04.182Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/outlier-project/configs 200
+[debug] [2024-12-29T04:52:04.182Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/outlier-project/configs {}
+[debug] [2024-12-29T04:52:04.184Z] Validating nodejs source
+[debug] [2024-12-29T04:52:05.599Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-29T04:52:05.604Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-12-29T04:52:05.605Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-29T04:52:05.614Z] Found firebase-functions binary at 'D:\YouTube API Project\youtube-outlier-finder\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8547
+
+[debug] [2024-12-29T04:52:07.037Z] Got response from /__/functions.yaml {"endpoints":{"test":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"test"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2024-12-29T04:52:07.068Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:07.068Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:07.069Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com [none]
+[debug] [2024-12-29T04:52:07.069Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T04:52:08.974Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com 200
+[debug] [2024-12-29T04:52:08.975Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com [omitted]
+[info] +  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2024-12-29T04:52:08.976Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-29T04:52:08.976Z] > authorizing via signed-in user (sayarsidhik@gmail.com)
+[debug] [2024-12-29T04:52:08.977Z] [iam] checking project outlier-project for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2024-12-29T04:52:08.978Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:08.978Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:08.979Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions [none]
+[debug] [2024-12-29T04:52:08.979Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T04:52:08.980Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2024-12-29T04:52:10.294Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions 200
+[debug] [2024-12-29T04:52:10.295Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2024-12-29T04:52:10.296Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:10.296Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:10.297Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/outlier-project/instances pageSize=100&pageToken=
+[debug] [2024-12-29T04:52:11.930Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/outlier-project/instances 200
+[debug] [2024-12-29T04:52:11.930Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/outlier-project/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged D:\YouTube API Project\youtube-outlier-finder\functions (134.34 KB) for uploading 
+[debug] [2024-12-29T04:52:11.989Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:11.989Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:11.989Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/outlier-project/locations/-/functions [none]
+[debug] [2024-12-29T04:52:13.008Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/outlier-project/locations/-/functions 200
+[debug] [2024-12-29T04:52:13.009Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/outlier-project/locations/-/functions {}
+[debug] [2024-12-29T04:52:13.009Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:13.010Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:13.010Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2024-12-29T04:52:14.702Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/-/functions 200
+[debug] [2024-12-29T04:52:14.703Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/-/functions {"functions":[{"name":"projects/outlier-project/locations/us-central1/functions/test","buildConfig":{"build":"projects/632305594805/locations/us-central1/builds/debf73a5-67a8-4949-afdf-666b0109f19d","runtime":"nodejs22","entryPoint":"test","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"state":"FAILED","updateTime":"2024-12-28T20:11:22.080270803Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"64a7e11f7829addcfdc78c8712de004a4929a68d"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/outlier-project/locations/us-central1/services/test for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/test","createTime":"2024-12-28T20:10:10.514949994Z"}]}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[debug] [2024-12-29T04:52:14.707Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:14.707Z] Checked if tokens are valid: true, expires at: 1735451507552
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[debug] [2024-12-29T04:52:14.708Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:14.709Z] Checked if tokens are valid: true, expires at: 1735451507552
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[debug] [2024-12-29T04:52:14.709Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:14.710Z] Checked if tokens are valid: true, expires at: 1735451507552
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[debug] [2024-12-29T04:52:14.710Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:14.711Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:14.711Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com [none]
+[debug] [2024-12-29T04:52:14.712Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T04:52:14.713Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com [none]
+[debug] [2024-12-29T04:52:14.714Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T04:52:14.716Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com [none]
+[debug] [2024-12-29T04:52:14.716Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T04:52:14.719Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com [none]
+[debug] [2024-12-29T04:52:14.719Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T04:52:16.288Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com 200
+[debug] [2024-12-29T04:52:16.289Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com [omitted]
+[info] +  functions: required API run.googleapis.com is enabled 
+[debug] [2024-12-29T04:52:16.384Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com 200
+[debug] [2024-12-29T04:52:16.385Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com [omitted]
+[info] +  functions: required API pubsub.googleapis.com is enabled 
+[debug] [2024-12-29T04:52:16.387Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com 200
+[debug] [2024-12-29T04:52:16.387Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com [omitted]
+[info] +  functions: required API eventarc.googleapis.com is enabled 
+[debug] [2024-12-29T04:52:16.391Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com 200
+[debug] [2024-12-29T04:52:16.392Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com [omitted]
+[info] +  functions: required API storage.googleapis.com is enabled 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2024-12-29T04:52:16.394Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:16.394Z] Checked if tokens are valid: true, expires at: 1735451507552
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2024-12-29T04:52:16.395Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:16.395Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:16.396Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2024-12-29T04:52:16.397Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2024-12-29T04:52:18.081Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2024-12-29T04:52:18.082Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-632305594805@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"110370449579005779292"}}
+[debug] [2024-12-29T04:52:18.083Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2024-12-29T04:52:18.083Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-632305594805@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"107129133161364094807"}}
+[debug] [2024-12-29T04:52:18.085Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:18.086Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:18.087Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project [none]
+[debug] [2024-12-29T04:52:19.523Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project 200
+[debug] [2024-12-29T04:52:19.524Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project {"projectNumber":"632305594805","projectId":"outlier-project","lifecycleState":"ACTIVE","name":"YouTube Outlier Project","labels":{"firebase":"enabled"},"createTime":"2024-11-14T15:12:10.713808Z"}
+[debug] [2024-12-29T04:52:19.525Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:19.525Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:19.526Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/outlier-project/billingInfo [none]
+[debug] [2024-12-29T04:52:21.140Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/outlier-project/billingInfo 200
+[debug] [2024-12-29T04:52:21.141Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/outlier-project/billingInfo {"name":"projects/outlier-project/billingInfo","projectId":"outlier-project","billingAccountName":"billingAccounts/015A4A-FB6749-9D3BA2","billingEnabled":true}
+[info] i  functions: Skipping the deploy of unchanged functions. 
+[info] +  functions[test(us-central1)] Skipped (No changes detected) 
+[debug] [2024-12-29T04:52:21.149Z] Total Function Deployment time: 1
+[debug] [2024-12-29T04:52:21.152Z] 0 Functions Deployed
+[debug] [2024-12-29T04:52:21.152Z] 0 Functions Errored
+[debug] [2024-12-29T04:52:21.153Z] 0 Function Deployments Aborted
+[debug] [2024-12-29T04:52:21.153Z] Average Function Deployment time: NaN
+[debug] [2024-12-29T04:52:21.448Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[info] i  functions: cleaning up build files... 
+[debug] [2024-12-29T04:52:21.449Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:21.450Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:21.451Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:21.452Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:21.452Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/test [none]
+[debug] [2024-12-29T04:52:21.453Z] >>> [apiv2][query] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list [none]
+[debug] [2024-12-29T04:52:22.148Z] <<< [apiv2][status] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list 404
+[debug] [2024-12-29T04:52:22.149Z] <<< [apiv2][body] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-12-29T04:52:22.151Z] Failed docker command with error  Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[debug] [2024-12-29T04:52:22.160Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:22.161Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:22.161Z] >>> [apiv2][query] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list [none]
+[debug] [2024-12-29T04:52:22.676Z] <<< [apiv2][status] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list 404
+[debug] [2024-12-29T04:52:22.677Z] <<< [apiv2][body] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-12-29T04:52:22.677Z] Failed docker command with error  Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[debug] [2024-12-29T04:52:22.784Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:22.784Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T04:52:22.785Z] >>> [apiv2][query] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list [none]
+[debug] [2024-12-29T04:52:23.056Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/test 404
+[debug] [2024-12-29T04:52:23.057Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/test {"error":{"code":404,"message":"Package \"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/test\" was not found.","status":"NOT_FOUND"}}
+[debug] [2024-12-29T04:52:23.271Z] <<< [apiv2][status] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list 404
+[debug] [2024-12-29T04:52:23.271Z] <<< [apiv2][body] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-12-29T04:52:23.272Z] Failed docker command with error  Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[warn] !  functions: Unhandled error cleaning up build images. This could result in a small monthly bill if not corrected. You can attempt to delete these images by redeploying or you can delete them manually at https://console.cloud.google.com/gcr/images/outlier-project/us/gcf 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/outlier-project/overview
+[debug] [2024-12-29T05:00:57.197Z] ----------------------------------------------------------------------
+[debug] [2024-12-29T05:00:57.199Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sayar\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --debug
+[debug] [2024-12-29T05:00:57.199Z] CLI Version:   13.29.1
+[debug] [2024-12-29T05:00:57.199Z] Platform:      win32
+[debug] [2024-12-29T05:00:57.200Z] Node Version:  v18.18.2
+[debug] [2024-12-29T05:00:57.201Z] Time:          Sun Dec 29 2024 10:30:57 GMT+0530 (India Standard Time)
+[debug] [2024-12-29T05:00:57.201Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-29T05:00:57.278Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-29T05:00:57.280Z] > authorizing via signed-in user (sayarsidhik@gmail.com)
+[debug] [2024-12-29T05:00:57.280Z] [iam] checking project outlier-project for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-12-29T05:00:57.283Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:00:57.283Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:00:57.285Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions [none]
+[debug] [2024-12-29T05:00:57.286Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T05:00:57.287Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-12-29T05:00:58.785Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions 200
+[debug] [2024-12-29T05:00:58.786Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-12-29T05:00:58.788Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:00:58.788Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:00:58.789Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2024-12-29T05:00:58.789Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2024-12-29T05:01:00.612Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2024-12-29T05:01:00.613Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/outlier-project/serviceAccounts/outlier-project@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'outlier-project'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2024-12-29T05:01:05.043Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:05.044Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:05.044Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project [none]
+[debug] [2024-12-29T05:01:06.427Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project 200
+[debug] [2024-12-29T05:01:06.428Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project {"projectNumber":"632305594805","projectId":"outlier-project","lifecycleState":"ACTIVE","name":"YouTube Outlier Project","labels":{"firebase":"enabled"},"createTime":"2024-11-14T15:12:10.713808Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2024-12-29T05:01:06.431Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:06.431Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:06.431Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:06.432Z] Checked if tokens are valid: true, expires at: 1735451507552
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2024-12-29T05:01:06.433Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:06.433Z] Checked if tokens are valid: true, expires at: 1735451507552
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-12-29T05:01:06.434Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:06.434Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:06.435Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-12-29T05:01:06.435Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T05:01:06.437Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-12-29T05:01:06.438Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T05:01:06.440Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com [none]
+[debug] [2024-12-29T05:01:06.441Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T05:01:06.442Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com [none]
+[debug] [2024-12-29T05:01:06.443Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T05:01:08.206Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com 200
+[debug] [2024-12-29T05:01:08.207Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-12-29T05:01:08.208Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com 200
+[debug] [2024-12-29T05:01:08.209Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-12-29T05:01:08.210Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com 200
+[debug] [2024-12-29T05:01:08.211Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-12-29T05:01:08.213Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com 200
+[debug] [2024-12-29T05:01:08.214Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-12-29T05:01:08.215Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:08.215Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:08.216Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/outlier-project/adminSdkConfig [none]
+[debug] [2024-12-29T05:01:08.794Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/outlier-project/adminSdkConfig 200
+[debug] [2024-12-29T05:01:08.794Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/outlier-project/adminSdkConfig {"projectId":"outlier-project","storageBucket":"outlier-project.firebasestorage.app"}
+[debug] [2024-12-29T05:01:08.796Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:08.796Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:08.797Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/outlier-project/configs [none]
+[debug] [2024-12-29T05:01:09.391Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/outlier-project/configs 200
+[debug] [2024-12-29T05:01:09.392Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/outlier-project/configs {}
+[debug] [2024-12-29T05:01:09.393Z] Validating nodejs source
+[debug] [2024-12-29T05:01:10.749Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-12-29T05:01:10.752Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2024-12-29T05:01:10.755Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-12-29T05:01:10.762Z] Found firebase-functions binary at 'D:\YouTube API Project\youtube-outlier-finder\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8435
+
+[debug] [2024-12-29T05:01:11.310Z] Got response from /__/functions.yaml {"endpoints":{"test":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"test"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2024-12-29T05:01:11.338Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:11.339Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:11.340Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com [none]
+[debug] [2024-12-29T05:01:11.340Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T05:01:13.044Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com 200
+[debug] [2024-12-29T05:01:13.045Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/firebaseextensions.googleapis.com [omitted]
+[info] +  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2024-12-29T05:01:13.046Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-29T05:01:13.047Z] > authorizing via signed-in user (sayarsidhik@gmail.com)
+[debug] [2024-12-29T05:01:13.048Z] [iam] checking project outlier-project for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2024-12-29T05:01:13.048Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:13.049Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:13.049Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions [none]
+[debug] [2024-12-29T05:01:13.049Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T05:01:13.050Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2024-12-29T05:01:14.361Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions 200
+[debug] [2024-12-29T05:01:14.362Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2024-12-29T05:01:14.362Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:14.363Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:14.364Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/outlier-project/instances pageSize=100&pageToken=
+[debug] [2024-12-29T05:01:16.094Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/outlier-project/instances 200
+[debug] [2024-12-29T05:01:16.095Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/outlier-project/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged D:\YouTube API Project\youtube-outlier-finder\functions (134.35 KB) for uploading 
+[debug] [2024-12-29T05:01:16.150Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:16.151Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:16.151Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/outlier-project/locations/-/functions [none]
+[debug] [2024-12-29T05:01:17.150Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/outlier-project/locations/-/functions 200
+[debug] [2024-12-29T05:01:17.150Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/outlier-project/locations/-/functions {}
+[debug] [2024-12-29T05:01:17.151Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:17.151Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:17.152Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2024-12-29T05:01:18.840Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/-/functions 200
+[debug] [2024-12-29T05:01:18.840Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/-/functions {"functions":[{"name":"projects/outlier-project/locations/us-central1/functions/test","buildConfig":{"build":"projects/632305594805/locations/us-central1/builds/debf73a5-67a8-4949-afdf-666b0109f19d","runtime":"nodejs22","entryPoint":"test","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"state":"FAILED","updateTime":"2024-12-28T20:11:22.080270803Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"64a7e11f7829addcfdc78c8712de004a4929a68d"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/outlier-project/locations/us-central1/services/test for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/test","createTime":"2024-12-28T20:10:10.514949994Z"}]}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[debug] [2024-12-29T05:01:18.845Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:18.845Z] Checked if tokens are valid: true, expires at: 1735451507552
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[debug] [2024-12-29T05:01:18.846Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:18.846Z] Checked if tokens are valid: true, expires at: 1735451507552
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[debug] [2024-12-29T05:01:18.847Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:18.847Z] Checked if tokens are valid: true, expires at: 1735451507552
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[debug] [2024-12-29T05:01:18.848Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:18.848Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:18.848Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com [none]
+[debug] [2024-12-29T05:01:18.849Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T05:01:18.852Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com [none]
+[debug] [2024-12-29T05:01:18.852Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T05:01:18.855Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com [none]
+[debug] [2024-12-29T05:01:18.856Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T05:01:18.858Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com [none]
+[debug] [2024-12-29T05:01:18.859Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com x-goog-quota-user=projects/outlier-project
+[debug] [2024-12-29T05:01:20.509Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com 200
+[debug] [2024-12-29T05:01:20.510Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/pubsub.googleapis.com [omitted]
+[info] +  functions: required API pubsub.googleapis.com is enabled 
+[debug] [2024-12-29T05:01:20.511Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com 200
+[debug] [2024-12-29T05:01:20.511Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/eventarc.googleapis.com [omitted]
+[info] +  functions: required API eventarc.googleapis.com is enabled 
+[debug] [2024-12-29T05:01:20.513Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com 200
+[debug] [2024-12-29T05:01:20.513Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/storage.googleapis.com [omitted]
+[info] +  functions: required API storage.googleapis.com is enabled 
+[debug] [2024-12-29T05:01:20.515Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com 200
+[debug] [2024-12-29T05:01:20.516Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/outlier-project/services/run.googleapis.com [omitted]
+[info] +  functions: required API run.googleapis.com is enabled 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2024-12-29T05:01:20.517Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:20.518Z] Checked if tokens are valid: true, expires at: 1735451507552
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2024-12-29T05:01:20.518Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:20.519Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:20.519Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2024-12-29T05:01:20.522Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2024-12-29T05:01:22.154Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2024-12-29T05:01:22.155Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-632305594805@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"110370449579005779292"}}
+[debug] [2024-12-29T05:01:22.236Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2024-12-29T05:01:22.237Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/632305594805/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-632305594805@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"107129133161364094807"}}
+[debug] [2024-12-29T05:01:22.239Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:22.239Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:22.240Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project [none]
+[debug] [2024-12-29T05:01:23.639Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project 200
+[debug] [2024-12-29T05:01:23.640Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/outlier-project {"projectNumber":"632305594805","projectId":"outlier-project","lifecycleState":"ACTIVE","name":"YouTube Outlier Project","labels":{"firebase":"enabled"},"createTime":"2024-11-14T15:12:10.713808Z"}
+[debug] [2024-12-29T05:01:23.641Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:23.641Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:23.642Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/outlier-project/billingInfo [none]
+[debug] [2024-12-29T05:01:25.198Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/outlier-project/billingInfo 200
+[debug] [2024-12-29T05:01:25.199Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/outlier-project/billingInfo {"name":"projects/outlier-project/billingInfo","projectId":"outlier-project","billingAccountName":"billingAccounts/015A4A-FB6749-9D3BA2","billingEnabled":true}
+[debug] [2024-12-29T05:01:25.201Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:25.202Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:25.202Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2024-12-29T05:01:26.758Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2024-12-29T05:01:26.759Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/gcf-v2-uploads-632305594805.us-central1.cloudfunctions.appspot.com/2d7a9305-62ec-440f-ac63-9a9b1b301990.zip?GoogleAccessId=service-632305594805@gcf-admin-robot.iam.gserviceaccount.com&Expires=1735450296&Signature=LrMRwdZBaGN%2B6%2Bgltir%2FIi1MetxxLbhkL6KFt6Xq7q5Nve0eyHk0Tnppmjqh9F8Ux23azIyqJjyjXkBtnGsmkfYLJjn48gFBqS0linPH3ifa4uiap3GC1eMEidmK8Soe0qUlu1mwiVfsrJRJycz8jbKRJcvdoWNk54YtWhYN%2FxADhebk4LuN%2BqXGTl9%2FLf1k8KNNBP%2B3vQUIaJ%2FDGVtnO%2Fh46X%2B37DKamb9cSW9z6kNvxSZryTcIO55LTBYjBDadVdoQFn6SbQi8KFX2gpbyYa%2FJy0VIxFzyJEliM3968yItE5cMqX%2FxMeUxIuyc33fcY%2FA%2B7TY5ghUYGOwkc8rWJA%3D%3D","storageSource":{"bucket":"gcf-v2-uploads-632305594805.us-central1.cloudfunctions.appspot.com","object":"2d7a9305-62ec-440f-ac63-9a9b1b301990.zip"}}
+[debug] [2024-12-29T05:01:26.761Z] >>> [apiv2][query] PUT https://storage.googleapis.com/gcf-v2-uploads-632305594805.us-central1.cloudfunctions.appspot.com/2d7a9305-62ec-440f-ac63-9a9b1b301990.zip GoogleAccessId=service-632305594805%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1735450296&Signature=LrMRwdZBaGN%2B6%2Bgltir%2FIi1MetxxLbhkL6KFt6Xq7q5Nve0eyHk0Tnppmjqh9F8Ux23azIyqJjyjXkBtnGsmkfYLJjn48gFBqS0linPH3ifa4uiap3GC1eMEidmK8Soe0qUlu1mwiVfsrJRJycz8jbKRJcvdoWNk54YtWhYN%2FxADhebk4LuN%2BqXGTl9%2FLf1k8KNNBP%2B3vQUIaJ%2FDGVtnO%2Fh46X%2B37DKamb9cSW9z6kNvxSZryTcIO55LTBYjBDadVdoQFn6SbQi8KFX2gpbyYa%2FJy0VIxFzyJEliM3968yItE5cMqX%2FxMeUxIuyc33fcY%2FA%2B7TY5ghUYGOwkc8rWJA%3D%3D
+[debug] [2024-12-29T05:01:26.762Z] >>> [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-632305594805.us-central1.cloudfunctions.appspot.com/2d7a9305-62ec-440f-ac63-9a9b1b301990.zip [stream]
+[debug] [2024-12-29T05:01:28.286Z] <<< [apiv2][status] PUT https://storage.googleapis.com/gcf-v2-uploads-632305594805.us-central1.cloudfunctions.appspot.com/2d7a9305-62ec-440f-ac63-9a9b1b301990.zip 200
+[debug] [2024-12-29T05:01:28.286Z] <<< [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-632305594805.us-central1.cloudfunctions.appspot.com/2d7a9305-62ec-440f-ac63-9a9b1b301990.zip [omitted]
+[info] +  functions: functions folder uploaded successfully 
+[info] i  functions: updating Node.js 22 (2nd Gen) function test(us-central1)... 
+[debug] [2024-12-29T05:01:28.296Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:28.297Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:28.298Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/functions/test updateMask=name%2CbuildConfig.runtime%2CbuildConfig.entryPoint%2CbuildConfig.source.storageSource.bucket%2CbuildConfig.source.storageSource.object%2CbuildConfig.environmentVariables%2CbuildConfig.sourceToken%2CserviceConfig.environmentVariables%2CserviceConfig.ingressSettings%2CserviceConfig.timeoutSeconds%2CserviceConfig.serviceAccountEmail%2CserviceConfig.availableMemory%2CserviceConfig.minInstanceCount%2CserviceConfig.maxInstanceCount%2CserviceConfig.maxInstanceRequestConcurrency%2CserviceConfig.availableCpu%2CserviceConfig.vpcConnector%2CserviceConfig.vpcConnectorEgressSettings%2Clabels%2CbuildConfig.buildEnvironmentVariables
+[debug] [2024-12-29T05:01:28.299Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/functions/test {"name":"projects/outlier-project/locations/us-central1/functions/test","buildConfig":{"runtime":"nodejs22","entryPoint":"test","source":{"storageSource":{"bucket":"gcf-v2-uploads-632305594805.us-central1.cloudfunctions.appspot.com","object":"2d7a9305-62ec-440f-ac63-9a9b1b301990.zip"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}},"serviceConfig":{"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}","GCLOUD_PROJECT":"outlier-project","EVENTARC_CLOUD_EVENT_SOURCE":"projects/outlier-project/locations/us-central1/services/test","FUNCTION_TARGET":"test"},"ingressSettings":null,"timeoutSeconds":null,"serviceAccountEmail":null,"availableMemory":"256Mi","minInstanceCount":null,"maxInstanceCount":null,"maxInstanceRequestConcurrency":80,"availableCpu":"1","vpcConnector":null,"vpcConnectorEgressSettings":null},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"64bd6ede561bd88687a4b5b86307c0b48cf1d304"}}
+[debug] [2024-12-29T05:01:30.670Z] <<< [apiv2][status] PATCH https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/functions/test 200
+[debug] [2024-12-29T05:01:30.671Z] <<< [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/functions/test {"name":"projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-12-29T05:01:39.904039302Z","target":"projects/outlier-project/locations/us-central1/functions/test","verb":"update","cancelRequested":false,"apiVersion":"v2"},"done":false}
+[debug] [2024-12-29T05:01:30.672Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:30.673Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:30.673Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae [none]
+[debug] [2024-12-29T05:01:32.094Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae 200
+[debug] [2024-12-29T05:01:32.095Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae {"name":"projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-12-29T05:01:39.904039302Z","target":"projects/outlier-project/locations/us-central1/functions/test","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/outlier-project/locations/us-central1/functions/test","buildConfig":{"runtime":"nodejs22","entryPoint":"test","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735448499832578"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/outlier-project/locations/us-central1/services/test","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}","GCLOUD_PROJECT":"outlier-project","EVENTARC_CLOUD_EVENT_SOURCE":"projects/outlier-project/locations/us-central1/services/test","FUNCTION_TARGET":"test","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"632305594805-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-hash":"64bd6ede561bd88687a4b5b86307c0b48cf1d304"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/outlier-project/locations/us-central1/services/test for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/test"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fcc0e650-de88-4d23-b3dd-caf82edf2192?project=632305594805"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192"},"done":false}
+[debug] [2024-12-29T05:01:32.606Z] [update-default-us-central1-test] Retrying task index 0
+[debug] [2024-12-29T05:01:32.607Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:32.608Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:32.608Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae [none]
+[debug] [2024-12-29T05:01:34.041Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae 200
+[debug] [2024-12-29T05:01:34.042Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae {"name":"projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-12-29T05:01:39.904039302Z","target":"projects/outlier-project/locations/us-central1/functions/test","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/outlier-project/locations/us-central1/functions/test","buildConfig":{"runtime":"nodejs22","entryPoint":"test","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735448499832578"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/outlier-project/locations/us-central1/services/test","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}","GCLOUD_PROJECT":"outlier-project","EVENTARC_CLOUD_EVENT_SOURCE":"projects/outlier-project/locations/us-central1/services/test","FUNCTION_TARGET":"test","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"632305594805-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-hash":"64bd6ede561bd88687a4b5b86307c0b48cf1d304"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/outlier-project/locations/us-central1/services/test for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/test"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fcc0e650-de88-4d23-b3dd-caf82edf2192?project=632305594805"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192"},"done":false}
+[debug] [2024-12-29T05:01:35.052Z] [update-default-us-central1-test] Retrying task index 0
+[debug] [2024-12-29T05:01:35.053Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:35.053Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:35.054Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae [none]
+[debug] [2024-12-29T05:01:36.549Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae 200
+[debug] [2024-12-29T05:01:36.549Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae {"name":"projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-12-29T05:01:39.904039302Z","target":"projects/outlier-project/locations/us-central1/functions/test","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/outlier-project/locations/us-central1/functions/test","buildConfig":{"runtime":"nodejs22","entryPoint":"test","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735448499832578"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/outlier-project/locations/us-central1/services/test","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}","GCLOUD_PROJECT":"outlier-project","EVENTARC_CLOUD_EVENT_SOURCE":"projects/outlier-project/locations/us-central1/services/test","FUNCTION_TARGET":"test","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"632305594805-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-hash":"64bd6ede561bd88687a4b5b86307c0b48cf1d304"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/outlier-project/locations/us-central1/services/test for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/test"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fcc0e650-de88-4d23-b3dd-caf82edf2192?project=632305594805"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192"},"done":false}
+[debug] [2024-12-29T05:01:38.557Z] [update-default-us-central1-test] Retrying task index 0
+[debug] [2024-12-29T05:01:38.558Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:38.558Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:38.560Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae [none]
+[debug] [2024-12-29T05:01:40.130Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae 200
+[debug] [2024-12-29T05:01:40.131Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae {"name":"projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-12-29T05:01:39.904039302Z","target":"projects/outlier-project/locations/us-central1/functions/test","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/outlier-project/locations/us-central1/functions/test","buildConfig":{"runtime":"nodejs22","entryPoint":"test","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735448499832578"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/outlier-project/locations/us-central1/services/test","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}","GCLOUD_PROJECT":"outlier-project","EVENTARC_CLOUD_EVENT_SOURCE":"projects/outlier-project/locations/us-central1/services/test","FUNCTION_TARGET":"test","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"632305594805-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-hash":"64bd6ede561bd88687a4b5b86307c0b48cf1d304"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/outlier-project/locations/us-central1/services/test for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/test"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fcc0e650-de88-4d23-b3dd-caf82edf2192?project=632305594805"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192"},"done":false}
+[debug] [2024-12-29T05:01:44.148Z] [update-default-us-central1-test] Retrying task index 0
+[debug] [2024-12-29T05:01:44.149Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:44.149Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:44.150Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae [none]
+[debug] [2024-12-29T05:01:45.546Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae 200
+[debug] [2024-12-29T05:01:45.547Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae {"name":"projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-12-29T05:01:39.904039302Z","target":"projects/outlier-project/locations/us-central1/functions/test","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/outlier-project/locations/us-central1/functions/test","buildConfig":{"runtime":"nodejs22","entryPoint":"test","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735448499832578"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/outlier-project/locations/us-central1/services/test","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}","GCLOUD_PROJECT":"outlier-project","EVENTARC_CLOUD_EVENT_SOURCE":"projects/outlier-project/locations/us-central1/services/test","FUNCTION_TARGET":"test","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"632305594805-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-hash":"64bd6ede561bd88687a4b5b86307c0b48cf1d304"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/outlier-project/locations/us-central1/services/test for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/test"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fcc0e650-de88-4d23-b3dd-caf82edf2192?project=632305594805"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192"},"done":false}
+[debug] [2024-12-29T05:01:53.555Z] [update-default-us-central1-test] Retrying task index 0
+[debug] [2024-12-29T05:01:53.556Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:53.556Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:01:53.557Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae [none]
+[debug] [2024-12-29T05:01:55.008Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae 200
+[debug] [2024-12-29T05:01:55.009Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae {"name":"projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-12-29T05:01:39.904039302Z","target":"projects/outlier-project/locations/us-central1/functions/test","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/outlier-project/locations/us-central1/functions/test","buildConfig":{"runtime":"nodejs22","entryPoint":"test","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735448499832578"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/outlier-project/locations/us-central1/services/test","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}","GCLOUD_PROJECT":"outlier-project","EVENTARC_CLOUD_EVENT_SOURCE":"projects/outlier-project/locations/us-central1/services/test","FUNCTION_TARGET":"test","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"632305594805-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-hash":"64bd6ede561bd88687a4b5b86307c0b48cf1d304"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/outlier-project/locations/us-central1/services/test for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/test"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fcc0e650-de88-4d23-b3dd-caf82edf2192?project=632305594805"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192"},"done":false}
+[debug] [2024-12-29T05:02:05.016Z] [update-default-us-central1-test] Retrying task index 0
+[debug] [2024-12-29T05:02:05.017Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:05.017Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:05.018Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae [none]
+[debug] [2024-12-29T05:02:06.652Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae 200
+[debug] [2024-12-29T05:02:06.653Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae {"name":"projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-12-29T05:01:39.904039302Z","target":"projects/outlier-project/locations/us-central1/functions/test","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/outlier-project/locations/us-central1/functions/test","buildConfig":{"runtime":"nodejs22","entryPoint":"test","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735448499832578"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/outlier-project/locations/us-central1/services/test","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}","GCLOUD_PROJECT":"outlier-project","EVENTARC_CLOUD_EVENT_SOURCE":"projects/outlier-project/locations/us-central1/services/test","FUNCTION_TARGET":"test","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"632305594805-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-hash":"64bd6ede561bd88687a4b5b86307c0b48cf1d304"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/outlier-project/locations/us-central1/services/test for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/test"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fcc0e650-de88-4d23-b3dd-caf82edf2192?project=632305594805"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192"},"done":false}
+[debug] [2024-12-29T05:02:16.661Z] [update-default-us-central1-test] Retrying task index 0
+[debug] [2024-12-29T05:02:16.662Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:16.663Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:16.663Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae [none]
+[debug] [2024-12-29T05:02:18.184Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae 200
+[debug] [2024-12-29T05:02:18.185Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae {"name":"projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-12-29T05:01:39.904039302Z","target":"projects/outlier-project/locations/us-central1/functions/test","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/outlier-project/locations/us-central1/functions/test","buildConfig":{"runtime":"nodejs22","entryPoint":"test","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735448499832578"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/outlier-project/locations/us-central1/services/test","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}","GCLOUD_PROJECT":"outlier-project","EVENTARC_CLOUD_EVENT_SOURCE":"projects/outlier-project/locations/us-central1/services/test","FUNCTION_TARGET":"test","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"632305594805-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-hash":"64bd6ede561bd88687a4b5b86307c0b48cf1d304"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/outlier-project/locations/us-central1/services/test for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/test"},"stages":[{"name":"BUILD","message":"Build finished","state":"COMPLETE","resource":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fcc0e650-de88-4d23-b3dd-caf82edf2192?project=632305594805"},{"name":"SERVICE","message":"Updating Cloud Run service","state":"IN_PROGRESS","resource":"projects/outlier-project/locations/us-central1/services/test","resourceUri":"https://console.cloud.google.com/run/detail/us-central1/test?project=outlier-project","stateMessages":[{"severity":"WARNING","type":"CloudRunServiceRecreated","message":"Cloud Run service projects/outlier-project/locations/us-central1/services/test for the function was not found. The service was redeployed with default values."}]}],"sourceToken":"Cldwcm9qZWN0cy82MzIzMDU1OTQ4MDUvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy9mY2MwZTY1MC1kZTg4LTRkMjMtYjNkZC1jYWY4MmVkZjIxOTISZ3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L291dGxpZXItcHJvamVjdC9nY2YtYXJ0aWZhY3RzL291dGxpZXItLXByb2plY3RfX3VzLS1jZW50cmFsMV9fdGVzdDp2ZXJzaW9uXzEYtePmwrMSIj1wcm9qZWN0cy9vdXRsaWVyLXByb2plY3QvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2Z1bmN0aW9ucy90ZXN0KgsI4q/DuwYQqJewETIIbm9kZWpzMjI6dgojZ2NyLmlvL2dhZS1ydW50aW1lcy9ub2RlanMyMjpzdGFibGUST3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3NlcnZlcmxlc3MtcnVudGltZXMvZ29vZ2xlLTIyLWZ1bGwvcnVudGltZXMvbm9kZWpzMjJAAQ==","operationType":"UPDATE_FUNCTION","buildName":"projects/632305594805/locations/us-central1/builds/fcc0e650-de88-4d23-b3dd-caf82edf2192"},"done":false}
+[debug] [2024-12-29T05:02:18.187Z] Got source token Cldwcm9qZWN0cy82MzIzMDU1OTQ4MDUvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2J1aWxkcy9mY2MwZTY1MC1kZTg4LTRkMjMtYjNkZC1jYWY4MmVkZjIxOTISZ3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L291dGxpZXItcHJvamVjdC9nY2YtYXJ0aWZhY3RzL291dGxpZXItLXByb2plY3RfX3VzLS1jZW50cmFsMV9fdGVzdDp2ZXJzaW9uXzEYtePmwrMSIj1wcm9qZWN0cy9vdXRsaWVyLXByb2plY3QvbG9jYXRpb25zL3VzLWNlbnRyYWwxL2Z1bmN0aW9ucy90ZXN0KgsI4q/DuwYQqJewETIIbm9kZWpzMjI6dgojZ2NyLmlvL2dhZS1ydW50aW1lcy9ub2RlanMyMjpzdGFibGUST3VzLWNlbnRyYWwxLWRvY2tlci5wa2cuZGV2L3NlcnZlcmxlc3MtcnVudGltZXMvZ29vZ2xlLTIyLWZ1bGwvcnVudGltZXMvbm9kZWpzMjJAAQ== for region us-central1
+[debug] [2024-12-29T05:02:28.205Z] [update-default-us-central1-test] Retrying task index 0
+[debug] [2024-12-29T05:02:28.208Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:28.209Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:28.209Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae [none]
+[debug] [2024-12-29T05:02:29.639Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae 200
+[debug] [2024-12-29T05:02:29.640Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae {"name":"projects/outlier-project/locations/us-central1/operations/operation-1735448499006-62a61974f2b63-876aac01-6c7763ae","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-12-29T05:01:39.904039302Z","endTime":"2024-12-29T05:02:33.753832118Z","target":"projects/outlier-project/locations/us-central1/functions/test","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/outlier-project/locations/us-central1/functions/test","buildConfig":{"runtime":"nodejs22","entryPoint":"test","source":{"storageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735448499832578"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-632305594805-us-central1","object":"test/function-source.zip","generation":"1735416610289756"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/outlier-project/serviceAccounts/632305594805-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/outlier-project/locations/us-central1/services/test","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}","GCLOUD_PROJECT":"outlier-project","EVENTARC_CLOUD_EVENT_SOURCE":"projects/outlier-project/locations/us-central1/services/test","FUNCTION_TARGET":"test","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"632305594805-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"FAILED","labels":{"firebase-functions-hash":"64bd6ede561bd88687a4b5b86307c0b48cf1d304"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/outlier-project/locations/us-central1/services/test for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-outlier-project.cloudfunctions.net/test"},"stages":[{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":true,"error":{"code":3,"message":"Could not create or update Cloud Run service test, Container Healthcheck failed. Revision 'test-00001-ziv' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.\n\nLogs URL: https://console.cloud.google.com/logs/viewer?project=outlier-project&resource=cloud_run_revision/service_name/test/revision_name/test-00001-ziv&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22test%22%0Aresource.labels.revision_name%3D%22test-00001-ziv%22 \nFor more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start"}}
+[debug] [2024-12-29T05:02:29.644Z] Got source token undefined for region us-central1
+[error] Could not create or update Cloud Run service test, Container Healthcheck failed. Revision 'test-00001-ziv' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+Logs URL: https://console.cloud.google.com/logs/viewer?project=outlier-project&resource=cloud_run_revision/service_name/test/revision_name/test-00001-ziv&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22test%22%0Aresource.labels.revision_name%3D%22test-00001-ziv%22 
+For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+[debug] [2024-12-29T05:02:29.651Z] Total Function Deployment time: 61356
+[debug] [2024-12-29T05:02:29.651Z] 1 Functions Deployed
+[debug] [2024-12-29T05:02:29.651Z] 1 Functions Errored
+[debug] [2024-12-29T05:02:29.652Z] 0 Function Deployments Aborted
+[debug] [2024-12-29T05:02:29.653Z] Average Function Deployment time: 61355
+[info] 
+[info] Functions deploy had errors with the following functions:
+	test(us-central1)
+[debug] [2024-12-29T05:02:29.913Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[info] i  functions: cleaning up build files... 
+[debug] [2024-12-29T05:02:29.914Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:29.915Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:29.916Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:29.916Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:29.917Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/test [none]
+[debug] [2024-12-29T05:02:29.918Z] >>> [apiv2][query] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list [none]
+[debug] [2024-12-29T05:02:30.656Z] <<< [apiv2][status] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list 404
+[debug] [2024-12-29T05:02:30.656Z] <<< [apiv2][body] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-12-29T05:02:30.657Z] Failed docker command with error  Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[debug] [2024-12-29T05:02:30.670Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:30.671Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:30.671Z] >>> [apiv2][query] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list [none]
+[debug] [2024-12-29T05:02:31.300Z] <<< [apiv2][status] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list 404
+[debug] [2024-12-29T05:02:31.301Z] <<< [apiv2][body] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-12-29T05:02:31.301Z] Failed docker command with error  Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[debug] [2024-12-29T05:02:31.412Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:31.414Z] Checked if tokens are valid: true, expires at: 1735451507552
+[debug] [2024-12-29T05:02:31.415Z] >>> [apiv2][query] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list [none]
+[debug] [2024-12-29T05:02:31.569Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/test 404
+[debug] [2024-12-29T05:02:31.569Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/test {"error":{"code":404,"message":"Package \"projects/outlier-project/locations/us-central1/repositories/gcf-artifacts/packages/test\" was not found.","status":"NOT_FOUND"}}
+[debug] [2024-12-29T05:02:31.937Z] <<< [apiv2][status] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list 404
+[debug] [2024-12-29T05:02:31.938Z] <<< [apiv2][body] GET https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2024-12-29T05:02:31.938Z] Failed docker command with error  Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/outlier-project/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[warn] !  functions: Unhandled error cleaning up build images. This could result in a small monthly bill if not corrected. You can attempt to delete these images by redeploying or you can delete them manually at https://console.cloud.google.com/gcr/images/outlier-project/us/gcf 
+[debug] [2024-12-29T05:02:31.939Z] Functions deploy failed.
+[debug] [2024-12-29T05:02:31.939Z] {
+  "endpoint": {
+    "id": "test",
+    "project": "outlier-project",
+    "region": "us-central1",
+    "entryPoint": "test",
+    "platform": "gcfv2",
+    "runtime": "nodejs22",
+    "httpsTrigger": {},
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "ingressSettings": null,
+    "availableMemoryMb": null,
+    "serviceAccount": null,
+    "timeoutSeconds": null,
+    "maxInstances": null,
+    "minInstances": null,
+    "concurrency": 80,
+    "vpc": null,
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"outlier-project\",\"storageBucket\":\"outlier-project.firebasestorage.app\"}",
+      "GCLOUD_PROJECT": "outlier-project",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/outlier-project/locations/us-central1/services/test"
+    },
+    "codebase": "default",
+    "securityLevel": "SECURE_ALWAYS",
+    "cpu": 1,
+    "targetedByOnly": false,
+    "hash": "64bd6ede561bd88687a4b5b86307c0b48cf1d304"
+  },
+  "op": "update",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "exit": 1,
+    "message": "Could not create or update Cloud Run service test, Container Healthcheck failed. Revision 'test-00001-ziv' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.\n\nLogs URL: https://console.cloud.google.com/logs/viewer?project=outlier-project&resource=cloud_run_revision/service_name/test/revision_name/test-00001-ziv&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22test%22%0Aresource.labels.revision_name%3D%22test-00001-ziv%22 \nFor more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start",
+    "original": {
+      "code": 3,
+      "message": "Could not create or update Cloud Run service test, Container Healthcheck failed. Revision 'test-00001-ziv' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.\n\nLogs URL: https://console.cloud.google.com/logs/viewer?project=outlier-project&resource=cloud_run_revision/service_name/test/revision_name/test-00001-ziv&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22test%22%0Aresource.labels.revision_name%3D%22test-00001-ziv%22 \nFor more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start"
+    },
+    "status": 3,
+    "code": 3
+  }
+}
+[debug] [2024-12-29T05:02:32.256Z] Error: Failed to update function test in region us-central1
+    at C:\Users\sayar\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:399:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Fabricator.updateV2Function (C:\Users\sayar\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:388:32)
+    at async Fabricator.updateEndpoint (C:\Users\sayar\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:155:13)
+    at async handle (C:\Users\sayar\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:89:17)
+[error] 
+[error] Error: There was an error deploying functions

@@ -88,10 +88,14 @@ const Pricing = () => {
   const getSessionId = async () => {
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:5000/api/payment", {
-        ...customerDetails,
-        order_amount: creditPlans[selectedCreditPlan]?.price,
-      });
+      const response = await axios.post(
+        // "https://us-central1-outlier-project.cloudfunctions.net/api/payment",
+        "http://localhost:5000/api/payment",
+        {
+          ...customerDetails,
+          order_amount: creditPlans[selectedCreditPlan]?.price,
+        }
+      );
       setLoading(false);
       return response.data;
     } catch (error) {
@@ -113,7 +117,9 @@ const Pricing = () => {
 
       const checkoutOptions = {
         paymentSessionId: sessionId,
-        returnUrl: "http://localhost:5000/api/status/{order_id}",
+        returnUrl:
+          // "https://us-central1-outlier-project.cloudfunctions.net/api/status/{order_id}",
+        "http://localhost:5000/api/status/{order_id}",
       };
 
       // Store selected credits in localStorage for use in PaymentSuccess
