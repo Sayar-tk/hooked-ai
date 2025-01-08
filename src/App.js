@@ -20,6 +20,11 @@ import {
 import { Navigate } from "react-router-dom";
 import PaymentSuccess from "./pages/payment/PaymentSuccess";
 import PaymentFailure from "./pages/payment/PaymentFailure";
+import PrivacyPolicy from "./pages/policy/PrivacyPolicy";
+import ContactUs from "./pages/policy/ContactUs";
+import TermsConditions from "./pages/policy/TermsConditions";
+import RefundsCancellations from "./pages/policy/RefundsCancellations";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -126,8 +131,41 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/privacy-policy"
+              element={
+                <ProtectedRoute>
+                  <PrivacyPolicy />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/contact-us"
+              element={
+                <ProtectedRoute>
+                  <ContactUs />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/terms-of-service"
+              element={
+                <ProtectedRoute>
+                  <TermsConditions />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/refund-policy"
+              element={
+                <ProtectedRoute>
+                  <RefundsCancellations />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   );

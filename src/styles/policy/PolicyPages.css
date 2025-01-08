@@ -1,0 +1,16 @@
+.page-container {
+    margin: 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .page-container h1 {
+    color: #333;
+  }
+  
+  .page-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
