@@ -55,7 +55,7 @@ const TitleGeneratorModal = ({
       const hasEnoughCredits = await deductCredits(1); // Deduct 1 credits
       if (!hasEnoughCredits) return; // Abort if not enough credits
 
-      const variations = await generateTitleFrameworks(video.title);
+      const variations = await generateTitleFrameworks(framework);
       setTitleVariations(variations);
     } catch (error) {
       console.error("Error generating variations:", error);

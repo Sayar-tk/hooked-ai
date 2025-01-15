@@ -95,7 +95,8 @@ const TitleFrameworkSchema = z.object({
   ),
 });
 
-export const generateTitleFrameworks = async (title) => {
+export const generateTitleFrameworks = async (framework) => {
+  console.log("Title passed to generation:", framework);
   try {
     const completion = await openai.beta.chat.completions.parse({
       model: "gpt-4o-mini",
@@ -107,7 +108,7 @@ export const generateTitleFrameworks = async (title) => {
         },
         {
           role: "user",
-          content: `Using this framework: "${title}", generate 4 engaging YouTube video titles in random niches" `,
+          content: `Using this framework: "${framework}", generate 4 engaging YouTube video titles in random niches" `,
         },
       ],
       response_format: zodResponseFormat(
